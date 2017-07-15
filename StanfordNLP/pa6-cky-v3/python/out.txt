@@ -1,0 +1,416 @@
+PCFGParserTest options:
+  path        : ../data/
+  test_data   : 
+  max_length  : 20
+  parser      : PCFGParser
+  data        : masc
+
+Using parser: PCFGParser
+Data will be loaded from: ../data/
+Loading MASC training trees... from: ../data/parser/masc/train
+Reading MASC from ../data/parser/masc/train
+done.
+Train trees size: 3595
+First train tree: (ROOT
+  (NP (NNP December) (CD 1998)))
+
+Last train tree: (ROOT
+  (S
+    (NP
+      (NP (DT The) (NNPS Soviets) (POS '))
+      (NN eavesdropping))
+    (VP (VBD paid)
+      (PRT (RP off))
+      (, ,)
+      (ADVP (RB however))
+      (, ,)
+      (SBAR (IN because)
+        (S
+          (NP (PRP they))
+          (VP (VBD got)
+            (NP (DT the) (NN contract))))))
+    (. .)))
+
+Loading MASC test trees...
+Reading MASC from ../data/parser/masc/devtest
+done.
+Test trees size: 355
+First test tree: (ROOT
+  (NP
+    (NP (NNP August) (CD 4))
+    (, ,)
+    (NP (CD 1999))))
+
+Last test tree: (ROOT
+  (S
+    (NP (NNP Tara))
+    (VP (MD would) (RB not)
+      (VP (VB let)
+        (S
+          (NP (JJ giddy) (NNS hopes))
+          (VP (VB drag)
+            (NP (PRP them))
+            (PP (IN onto)
+              (NP
+                (NP (DT a) (NN rock))
+                (SBAR
+                  (WHNP (WDT that))
+                  (S
+                    (VP (MD would)
+                      (VP (VB spell)
+                        (NP (DT the) (NN end))
+                        (PP (IN for)
+                          (NP
+                            (NP (DT the) (NN project))
+                            (, ,)
+                            (CC and)
+                            (NP (DT the) (NNP Arrallin) (NN species))))))))))))))
+    (. .)))
+
+
+Training parser...
+Testing parser
+['August', '4', ',', '1999']
+Guess:
+(ROOT
+  (NP
+    (NP (NNP August) (CD 4))
+    (, ,) (CD 1999)))
+
+Gold:
+(ROOT
+  (NP
+    (NP (NNP August) (CD 4))
+    (, ,)
+    (NP (CD 1999))))
+
+ [Current]    P: 100.00   R: 66.67   F1: 80.00   EX:  0.00
+['Name', 'Address', 'City', ',', 'ST', 'Zip']
+Guess:
+(ROOT
+  (NP
+    (NP (NN Name) (NN Address) (NN City))
+    (, ,)
+    (NP (NN ST) (NN Zip))))
+
+Gold:
+(ROOT
+  (NP
+    (NP (NN Name))
+    (NP (NN Address))
+    (NP (NN City))
+    (, ,)
+    (NP (NN ST))
+    (NP (NN Zip))))
+
+ [Current]    P: 33.33   R: 16.67   F1: 22.22   EX:  0.00
+['The', 'goal', 'of', 'MCCOY', ',', 'Inc.', 'has', 'been', 'to', 'make', 'a', 'difference', '.']
+Guess:
+(ROOT
+  (S
+    (NP
+      (NP (DT The) (NN goal))
+      (PP (IN of)
+        (NP (NNP MCCOY) (, ,) (NNP Inc.))))
+    (VP (VBZ has)
+      (VP (VBN been)
+        (S
+          (VP (TO to)
+            (VP (VB make)
+              (NP (DT a) (NN difference)))))))
+    (. .)))
+
+Gold:
+(ROOT
+  (S
+    (NP
+      (NP (DT The) (NN goal))
+      (PP (IN of)
+        (NP (NNP MCCOY) (, ,) (NNP Inc.))))
+    (VP (VBZ has)
+      (VP (VBN been)
+        (S
+          (VP (TO to)
+            (VP (VB make)
+              (NP (DT a) (NN difference)))))))
+    (. .)))
+
+ [Current]    P: 100.00   R: 100.00   F1: 100.00   EX: 100.00
+['That', 'need', 'is', 'being', 'met', '.']
+Guess:
+(ROOT
+  (S
+    (NP (DT That) (NN need))
+    (VP (VBZ is)
+      (VP (VBG being)
+        (S
+          (VP (VBD met)))))
+    (. .)))
+
+Gold:
+(ROOT
+  (S
+    (NP (DT That) (NN need))
+    (VP (VBZ is)
+      (VP (VBG being)
+        (VP (VBN met))))
+    (. .)))
+
+ [Current]    P: 83.33   R: 100.00   F1: 90.91   EX:  0.00
+['Sincerely', ',', 'John', 'F.', 'Brandon', ',', 'President', 'MCCOY', ',', 'Inc.']
+Guess:
+(ROOT
+  (FRAG
+    (ADVP (RB Sincerely))
+    (, ,)
+    (NP
+      (NP (NNP John) (NNP F.) (NNP Brandon))
+      (, ,)
+      (NP (NNP President) (NNP MCCOY) (, ,) (NNP Inc.)))))
+
+Gold:
+(ROOT
+  (FRAG
+    (ADVP (RB Sincerely))
+    (, ,)
+    (NP
+      (NP (NNP John) (NNP F.) (NNP Brandon))
+      (, ,)
+      (NP
+        (NP (NNP President))
+        (NP (NNP MCCOY) (, ,) (NNP Inc.))))))
+
+ [Current]    P: 100.00   R: 71.43   F1: 83.33   EX:  0.00
+['January', '5', ',', '1997']
+Guess:
+(ROOT
+  (NP
+    (NP (NNP January) (CD 5))
+    (, ,) (CD 1997)))
+
+Gold:
+(ROOT
+  (NP
+    (NP (NNP January) (CD 5))
+    (, ,)
+    (NP (CD 1997))))
+
+ [Current]    P: 100.00   R: 66.67   F1: 80.00   EX:  0.00
+['Name', 'Address', 'City', ',', 'ST', 'Zip']
+Guess:
+(ROOT
+  (NP
+    (NP (NN Name) (NN Address) (NN City))
+    (, ,)
+    (NP (NN ST) (NN Zip))))
+
+Gold:
+(ROOT
+  (NP
+    (NP (NN Name))
+    (NP (NN Address))
+    (NP (NN City))
+    (, ,)
+    (NP (NN ST))
+    (NP (NN Zip))))
+
+ [Current]    P: 33.33   R: 16.67   F1: 22.22   EX:  0.00
+['Dear', 'Bill', ':']
+Guess:
+(ROOT
+  (NP (JJ Dear) (NNP Bill)
+    (. (: :))))
+
+Gold:
+(ROOT
+  (NP (JJ Dear) (NNP Bill) (: :)))
+
+ [Current]    P: 50.00   R: 100.00   F1: 66.67   EX:  0.00
+['I', 'will', 'call', 'you', 'in', 'a', 'few', 'weeks', 'to', 'discuss', 'your', 'level', 'of', 'interest', '.']
+Guess:
+(ROOT
+  (S
+    (NP (PRP I))
+    (VP (MD will)
+      (VP (VB call)
+        (NP (PRP you))
+        (SBAR (IN in)
+          (S
+            (NP (DT a) (JJ few) (NNS weeks))
+            (VP (TO to)
+              (VP (VB discuss)
+                (NP (PRP$ your) (NN level))
+                (PP (IN of)
+                  (NP (NN interest)))))))))
+    (. .)))
+
+Gold:
+(ROOT
+  (S
+    (NP (PRP I))
+    (VP (MD will)
+      (VP (VB call)
+        (NP (PRP you))
+        (PP (IN in)
+          (NP (DT a) (JJ few) (NNS weeks)))
+        (S
+          (VP (TO to)
+            (VP (VB discuss)
+              (NP
+                (NP (PRP$ your) (NN level))
+                (PP (IN of)
+                  (NP (NN interest)))))))))
+    (. .)))
+
+ [Current]    P: 84.62   R: 78.57   F1: 81.48   EX:  0.00
+['Sincerely', ',', 'John', 'Brandon', 'Executive', 'Director']
+Guess:
+(ROOT
+  (FRAG
+    (ADVP (RB Sincerely))
+    (, ,)
+    (NP (CD John) (NNP Brandon) (NNP Executive) (NNP Director))))
+
+Gold:
+(ROOT
+  (FRAG
+    (ADVP (RB Sincerely))
+    (, ,)
+    (NP
+      (NP (NNP John) (NNP Brandon))
+      (NP (NNP Executive) (NNP Director)))))
+
+ [Current]    P: 100.00   R: 60.00   F1: 75.00   EX:  0.00
+['October', '7', ',', '1996']
+Guess:
+(ROOT
+  (NP
+    (NP (NNP October) (CD 7))
+    (, ,) (CD 1996)))
+
+Gold:
+(ROOT
+  (NP
+    (NP (NNP October) (CD 7))
+    (, ,)
+    (NP (CD 1996))))
+
+ [Current]    P: 100.00   R: 66.67   F1: 80.00   EX:  0.00
+['Name', 'Address', 'City', ',', 'ST', 'Zip']
+Guess:
+(ROOT
+  (NP
+    (NP (NN Name) (NN Address) (NN City))
+    (, ,)
+    (NP (NN ST) (NN Zip))))
+
+Gold:
+(ROOT
+  (NP
+    (NP (NN Name))
+    (NP (NN Address))
+    (NP (NN City))
+    (, ,)
+    (NP (NN ST))
+    (NP (NN Zip))))
+
+ [Current]    P: 33.33   R: 16.67   F1: 22.22   EX:  0.00
+['Dear', 'Name', ':']
+Guess:
+(ROOT
+  (NP (JJ Dear) (NNP Name)
+    (. (: :))))
+
+Gold:
+(ROOT
+  (NP (JJ Dear) (NNP Name) (. :)))
+
+ [Current]    P: 50.00   R: 100.00   F1: 66.67   EX:  0.00
+['MCCOY', 'was', 'reorganized', 'as', 'an', 'independent', ',', 'not-for-profit', 'agency', ',', 'separate', 'from', 'local', 'government', '.']
+Guess:
+(ROOT
+  (S
+    (NP (NNP MCCOY))
+    (VP (VBD was)
+      (VP (VBN reorganized)
+        (PP (IN as)
+          (NP
+            (NP (DT an) (JJ independent) (, ,) (JJ not-for-profit) (NN agency))
+            (, ,)
+            (VP (VBN separate)
+              (PP (IN from)
+                (NP (JJ local) (NN government))))))))
+    (. .)))
+
+Gold:
+(ROOT
+  (S
+    (NP (NNP MCCOY))
+    (VP (VBD was)
+      (VP (VBN reorganized)
+        (PP (IN as)
+          (NP
+            (NP (DT an) (JJ independent) (, ,) (JJ not-for-profit) (NN agency))
+            (, ,)
+            (ADJP (JJ separate)
+              (PP (IN from)
+                (NP (JJ local) (NN government))))))))
+    (. .)))
+
+ [Current]    P: 90.00   R: 90.00   F1: 90.00   EX:  0.00
+['McCoy', 'has', 'only', 'one', 'interest', ':', 'the', 'well', 'being', 'of', 'Marion', 'County', "'s", 'young', 'people', '.']
+Guess:
+(ROOT
+  (S
+    (S
+      (NP (NNP McCoy))
+      (VP (VBZ has) (RB only)
+        (NP (CD one) (NN interest))))
+    (: :)
+    (S
+      (NP (DT the))
+      (ADVP (RB well))
+      (VP (VBG being)
+        (PP (IN of)
+          (NP
+            (NP (NNP Marion) (NNP County) (POS 's))
+            (JJ young) (NNS people)))))
+    (. .)))
+
+Gold:
+(ROOT
+  (S
+    (NP (NNP McCoy))
+    (VP (VBZ has)
+      (NP
+        (NP
+          (QP (RB only) (CD one))
+          (NN interest))
+        (: :)
+        (NP
+          (NP (DT the) (NN well) (NN being))
+          (PP (IN of)
+            (NP
+              (NP (NNP Marion) (NNP County) (POS 's))
+              (JJ young) (NNS people))))))
+    (. .)))
+
+ [Current]    P: 41.67   R: 45.45   F1: 43.48   EX:  0.00
+['July', '28', ',', '1999']
+Guess:
+(ROOT
+  (NP
+    (NP (NNP July) (CD 28))
+    (, ,) (CD 1999)))
+
+Gold:
+(ROOT
+  (NP
+    (NP (NNP July) (CD 28))
+    (, ,)
+    (NP (CD 1999))))
+
+ [Current]    P: 100.00   R: 66.67   F1: 80.00   EX:  0.00
+['Dear']
+Cannot find ROOT!!!!!! at 0 1
+{(0, 1): {'@S^NP->_NP^S': ('U', 'ADJP^S'), '@VP^VP->_VB': ('U', 'ADJP^VP'), 'PRP$': ('U', 'Dear'), '@VP^S->_VBD_,': ('U', 'S^VP'), '@VP^S->_VBZ_:_S^VP_,': ('U', 'SBAR^VP'), '@PP^VP->_NP^PP_IN': ('U', 'NP^PP'), '@NP^SINV->_NP^NP_,_NP^NP_,_NP^NP_,_NP^NP_,_NP^NP_,_NP^NP_,_NP^NP_,_NP^NP_,_NP^NP_,_NP^NP_,_CC': ('U', 'NP^NP'), '@PP^PP->_ADVP^PP_IN': ('U', 'NP^PP'), '@VP^VP->_VP^VP_CC_VP^VP_CC': ('U', 'VP^VP'), '@NP^VP->_NP^NP_,_NP^NP_,_NP^NP': ('U', 'NP^NP'), '@VP^S->_VP^VP_,_VP^VP_,_VP^VP_,_CC': ('U', 'VP^VP'), '@NP^S->_CONJP^NP_NP^NP_,_CC': ('U', 'NP^NP'), '@VP^S->_VBD_NP^VP_S^VP': ('U', 'SBAR^VP'), '@NP^NP->_PRP$_NN': ('U', 'SBAR^NP'), '@PP^WHNP->_TO': ('U', 'NP^PP'), '@VP^S->_VBD_:': ('U', 'S^VP'), '@SBAR^VP->_JJ_IN': ('U', 'S^SBAR'), '@ADJP^VP->_JJ_,_JJ_,': ('U', 'JJ'), '@VP^S->_VBZ_ADVP^VP_RB_NP^VP': ('U', 'S^VP'), '@NP^VP->_NP^NP_CC': ('U', 'NP^NP'), '@VP^VP->_VB_NP^VP_ADVP^VP_,': ('U', 'SBAR^VP'), '@VP^S->_VBZ_,_PRN^VP_,_ADJP^VP': ('U', 'SBAR^VP'), '@VP^VP->_VBN_PP^VP_PP^VP_,': ('U', 'S^VP'), '@PP^VP->_TO': ('U', 'NP^PP'), '@VP^S->_VBD_PP^VP_NP^VP': ('U', 'NP^VP'), '@VP^S->_VBZ_,_ADVP^VP_,_``': ('U', 'SBAR^VP'), '@PP^S->_IN': ('U', 'ADJP^PP'), '@NP^NP->_ADVP^NP': ('U', 'NP^NP'), '@PP^RRC->_ADVP^PP_IN': ('U', 'NP^PP'), '@SBAR^FRAG->_WHNP^SBAR': ('U', 'S^SBAR'), '@VP^S->_VBP_RB_-LRB-_ADVP^VP_-RRB-': ('U', 'ADJP^VP'), '@VP^S->_VP^VP_,_VP^VP_,_CC_,_S^VP_,': ('U', 'VP^VP'), '@VP^VP->_VB_NP^VP': ('U', 'S^VP'), '@NP^VP->_NP^NP_,_NP^NP_,_NP^NP_,_NP^NP_,_NP^NP_,_NP^NP_,_NP^NP_,_CC': ('U', 'NP^NP'), '@ADJP^ADJP->_JJ_PP^ADJP_,': ('U', 'SBAR^ADJP'), '@S^PP->_S^S_CC': ('U', 'S^S'), '@VP^S->_VBD_-LRB-_NP^VP_-RRB-_:': ('U', 'S^VP'), '@ADJP^NP->_LST^ADJP': ('U', 'JJ'), '@NP^VP->_DT_NN': ('U', 'SBAR^NP'), "@NP^VP->_NP^NP_,_''": ('U', 'NP^NP'), '@VP^VP->_VB_NP^VP_ADVP^VP': ('U', 'NP^VP'), '@PP^WHNP->_IN': ('U', 'NP^PP'), 'WRB': ('U', 'Dear'), '@NP^PP->_DT_NN_:_PRN^NP_:': ('U', 'SBAR^NP'), '@VP^S->_VBZ_ADJP^VP_S^VP_,': ('U', 'SBAR^VP'), '@VP^S->_VBP_ADJP^VP_PP^VP': ('U', 'SBAR^VP'), '@VP^S->_VBP_NP^VP_PRT^VP_PP^VP': ('U', 'S^VP'), '@NP^PP->_DT_NML^NP': ('U', 'JJ'), '@NP^PP->_NP^NP_,_NP^NP_,_NP^NP_,': ('U', 'NP^NP'), '@VP^VP->_VBG_NP^VP': ('U', 'S^VP'), "@NP^NP->_``_S^NP_''": ('U', 'PRN^NP'), '@VP^VP->_VB_NP^VP_,_SBAR^VP_,': ('U', 'NP^VP'), '@VP^SBAR->_VBD': ('U', 'SBAR^VP'), '@VP^S->_VBD_ADVP^VP': ('U', 'ADJP^VP'), '@VP^VP->_VBN_,_PP^VP_,': ('U', 'S^VP'), '@NP^NP->_NP^NP_,_ADVP^NP_,': ('U', 'NP^NP'), '@PP^VP->_IN_EDITED^PP': ('U', 'NP^PP'), '@S^SBAR->_S^S_,_CC': ('U', 'S^S'), '@NP^VP->_S^NP_,_S^NP_,_NP^NP_,': ('U', 'NP^NP'), '@NP^S->_NP^NP_,_NP^NP_,_NP^NP_CC': ('U', 'NP^NP'), '@NP^S->_DT': ('U', 'JJ'), '@VP^S->_VBZ_``': ('U', 'NP^VP'), '@ADJP^NP->_ADJP^ADJP_CC': ('U', 'ADJP^ADJP'), '@PP^ADJP->_CONJP^PP_PP^PP_CC': ('U', 'PP^PP'), '@ADJP^SQ->_JJ_CC': ('U', 'JJ'), '@VP^S->_VBD_RB_ADJP^VP_ADVP^VP': ('U', 'SBAR^VP'), '@VP^S->_VBP_:_PRN^VP_:': ('U', 'NP^VP'), '@VP^VP->_VBN_NP^VP_ADVP^VP': ('U', 'NP^VP'), "@NP^VP->_NP^NP_,_''_''_NP^NP_,_''_''_NP^NP_,_''_CC_''": ('U', 'NP^NP'), '@VP^VP->_VB_CC_VB': ('U', 'NP^VP'), '@PP^NP->_IN_CC_IN': ('U', 'NP^PP'), "@VP^VP->_VBN_''_NP^VP": ('U', 'S^VP'), '@VP^S->_VP^VP_CC_,_ADVP^VP_,': ('U', 'VP^VP'), '@PP^ADJP->_PP^PP_CC': ('U', 'PP^PP'), '@PP^NP->_IN_CC_IN_:_PRN^PP': ('U', 'NP^PP'), '@S^SBAR->_S^S_,_CC_S^S_CC': ('U', 'S^S'), '@SBAR^NP->_WHADVP^SBAR_``': ('U', 'S^SBAR'), '@VP^S->_VP^VP_,_CONJP^VP': ('U', 'VP^VP'), '@VP^S->_MD_ADVP^VP_ADVP^VP': ('U', 'VP^VP'), '@VP^S->_VBZ_SBAR^VP': ('U', 'SBAR^VP'), 'PP^PP': ('U', 'NP^PP'), '@VP^VP->_VBN_:_PRN^VP_:': ('U', 'SBAR^VP'), '@VP^VP->_MD': ('U', 'VP^VP'), '@NP^VP->_NP^NP_EDITED^NP': ('U', 'NP^NP'), '@VP^S->_VBZ_:_PRN^VP_:': ('U', 'VP^VP'), '@VP^S->_VB_NP^VP_:': ('U', 'NP^VP'), '@VP^VP->_VBP': ('U', 'ADJP^VP'), '@VP^S->_VBD_ADVP^VP_SBAR^VP_,': ('U', 'S^VP'), '@NP^VP->_NP^NP_,_NP^NP_,_NP^NP_,_ADJP^NP_,': ('U', 'NP^NP'), '@NP^PP->_NP^NP_,_NP^NP_CC': ('U', 'NP^NP'), '@VP^S->_VP^VP_CC': ('U', 'VP^VP'), '@VP^S->_VBZ_NP^VP_PP^VP_,': ('U', 'SBAR^VP'), '@QP^NP->_JJR_IN': ('U', 'JJ'), '@VP^S->_VBP_EDITED^VP_S^VP_,': ('U', 'SBAR^VP'), '@VP^SINV->_VBD_NP^VP_PP^VP_PP^VP_,': ('U', 'VP^VP'), '@VP^S->_VB_NP^VP_,': ('U', 'NP^VP'), '@ADJP^S->_JJ_,_JJ_,_CC': ('U', 'JJ'), '@VP^NP->_VBN_ADVP^VP_NFP': ('U', 'PRN^VP'), '@SBAR^PP->_IN': ('U', 'S^SBAR'), '@SBAR^SQ->_RB': ('U', 'S^SBAR'), '@VP^S->_VP^VP_,': ('U', 'VP^VP'), '@VP^VP->_VBD_RB_ADVP^VP': ('U', 'ADJP^VP'), '@PP^VP->_PP^PP_,_RB': ('U', 'PP^PP'), '@SBAR^VP->_WHADVP^SBAR_``': ('U', 'S^SBAR'), '@PP^NP->_FW_FW': ('U', 'NP^PP'), '@ADJP^VP->_ADJP^ADJP_,_CC_ADVP^ADJP': ('U', 'ADJP^ADJP'), '@VP^PRN->_VBZ': ('U', 'NP^VP'), "@NP^PP->_``_NP^NP_,_''": ('U', 'NP^NP'), '@PP^VP->_IN_EDITED^PP_PRN^PP_,': ('U', 'NP^PP'), '@ADJP^FRAG->_RBR': ('U', 'JJ'), '@SBAR^VP->_SBAR^SBAR_CC': ('U', 'SBAR^SBAR'), 'PRN^SBAR': ('U', 'S^PRN'), '@NP^VP->_NP^NP_,_SBAR^NP_,': ('U', 'NP^NP'), '@ADJP^NP->_RB_JJ_CC': ('U', 'JJ'), '@VP^S->_VBD_PP^VP_PP^VP': ('U', 'SBAR^VP'), '@WHADVP^SBARQ->_WRB': ('U', 'JJ'), '@NP^S->_NP^NP_,': ('U', 'NP^NP'), '@S^NP->_S^S_,_S^S_,_S^S_,_S^S_,_S^S_,_S^S_,_CC_,': ('U', 'S^S'), '@SBAR^SBAR->_UCP^SBAR_,_IN': ('U', 'S^SBAR'), '@VP^VP->_VP^VP_,_VP^VP_,_VP^VP_,_CC': ('U', 'VP^VP'), '@S^ROOT->_ADVP^S_,_S^S_,_CC': ('U', 'S^S'), '@VP^S->_VBD_RB_ADVP^VP_NP^VP': ('U', 'SBAR^VP'), '@UCP^VP->_SBAR^UCP_CC': ('U', 'NP^UCP'), '@VP^S->_VBD_PP^VP_:': ('U', 'S^VP'), '@PP^VP->_PP^PP_:_CC_,_PRN^PP_,_RB': ('U', 'PP^PP'), '@SBAR^SBAR->_WHNP^SBAR': ('U', 'S^SBAR'), '@NP^S->_JJ': ('U', 'NML^NP'), '@NP^ROOT->_PP^NP_:': ('U', 'NP^NP'), 'NFP': ('U', 'Dear'), '@VP^S->_VBD_PP^VP_,': ('U', 'S^VP'), '@S^VP->_NP^S_ADJP^S': ('U', 'S^S'), '@PP^PP->_IN_NP^PP_,': ('U', 'PP^PP'), '@NP^PP->_NP^NP_,_INTJ^NP_,': ('U', 'NP^NP'), '@VP^SBAR->_VBZ': ('U', 'NP^VP'), '@VP^VP->_VB_PRT^VP_NP^VP': ('U', 'SBAR^VP'), '@PP^VP->_IN_WRB': ('U', 'NP^PP'), 'MD': ('U', 'Dear'), '@SBAR^VP->_SBAR^SBAR_CC_ADVP^SBAR': ('U', 'SBAR^SBAR'), '@NP^PP->_NP^NP_CC_,_ADVP^NP_PP^NP_,': ('U', 'NP^NP'), '@WHADJP^SBARQ->_RB_WRB': ('U', 'JJ'), '@NP^ROOT->_NP^NP_,': ('U', 'NP^NP'), '@PP^SINV->_IN': ('U', 'NP^PP'), '@SBAR^SBAR->_ADVP^SBAR_IN': ('U', 'S^SBAR'), 'SBAR^SBAR': ('U', 'S^SBAR'), '@VP^SINV->_VB': ('U', 'NP^VP'), '@VP^VP->_VB_PP^VP_,': ('U', 'NP^VP'), '@S^VP->_S^S_CC': ('U', 'S^S'), '@VP^S->_VP^VP_-LRB-_CC_,_ADVP^VP_,_VP^VP_-RRB-': ('U', 'NP^VP'), 'ADJP^NP': ('U', 'JJ'), '@PP^VP->_IN_,_PRN^PP_,_INTJ^PP': ('U', 'NP^PP'), '@NP^S->_NP^NP_CC': ('U', 'NP^NP'), '@VP^VP->_VP^VP_CC_ADVP^VP_VP^VP': ('U', 'NP^VP'), '@SBAR^SQ->_IN': ('U', 'FRAG^SBAR'), '@VP^S->_VBZ_PP^VP_,': ('U', 'SBAR^VP'), '@NP^ROOT->_NP^NP_:': ('U', 'NP^NP'), '@VP^S->_VBD_PRT^VP_,_ADVP^VP_,': ('U', 'SBAR^VP'), 'VBG': ('U', 'Dear'), '@VP^SQ->_VBG_NP^VP': ('U', 'SBAR^VP'), '@VP^SQ->_VBN': ('U', 'NP^VP'), 'VBD': ('U', 'Dear'), '@VP^S->_VBZ_-LRB-_NP^VP_-RRB-': ('U', 'SBAR^VP'), '@NP^NP->_ADVP^NP_,_PP^NP_,': ('U', 'NP^NP'), '@NP^NP->_JJ_NML^NP_,_NML^NP_,_CC': ('U', 'NML^NP'), '@VP^SQ->_VBD': ('U', 'NP^VP'), 'VBN': ('U', 'Dear'), '@VP^SQ->_VBG': ('U', 'SBAR^VP'), '@VP^S->_VP^VP_CC_,_PRN^VP_,': ('U', 'VP^VP'), '@VP^SQ->_VBZ': ('U', 'NP^VP'), 'VBP': ('U', 'Dear'), '@VP^VP->_VBD_EDITED^VP': ('U', 'SBAR^VP'), '@VP^S->_VBD_S^VP_,_PP^VP_,': ('U', 'SBAR^VP'), 'VBZ': ('U', 'Dear'), '@PP^PP->_PP^PP': ('U', 'PP^PP'), '@NP^PP->_NP^NP_``': ('U', 'NP^NP'), '@VP^VP->_RB': ('U', 'VP^VP'), '@NP^SQ->_NP^NP_CC': ('U', 'NP^NP'), '@VP^SQ->_VB_,': ('U', 'NP^VP'), '@VP^S->_VP^VP_``_CC': ('U', 'VP^VP'), '@VP^S->_VBG_PRT^VP': ('U', 'NP^VP'), '@NP^PP->_NP^NP_:_NP^NP_:_CC': ('U', 'NP^NP'), '@NP^NP->_NP^NP_,_NP^NP_,_CC_PP^NP': ('U', 'NP^NP'), '@VP^VP->_VBN': ('U', 'ADJP^VP'), '@ADJP^NP->_RBS_JJ_,_JJ_CC': ('U', 'JJ'), '@VP^VP->_VP^VP_:_CC_SBAR^VP_VP^VP_:': ('U', 'NP^VP'), '@PP^EDITED->_IN': ('U', 'NP^PP'), '@VP^VP->_VBG_CC_VBG': ('U', 'NP^VP'), '@VP^VP->_VB_``': ('U', 'S^VP'), '@S^NP->_S^S_,_CC': ('U', 'S^S'), '@VP^VP->_VBP_ADVP^VP': ('U', 'S^VP'), '@NP^VP->_NP^NP_CC_NP^NP': ('U', 'NP^NP'), '@VP^S->_VBD_,_PP^VP_,': ('U', 'NP^VP'), 'S^S': ('U', 'ADJP^S'), '@SBAR^VP->_IN_,_PRN^SBAR_,': ('U', 'S^SBAR'), '@VP^VP->_VBN_ADJP^VP': ('U', 'S^VP'), '@PP^ADJP->_ADVP^PP_IN': ('U', 'NP^PP'), '@VP^S->_VBD_,_SBAR^VP_,': ('U', 'SBAR^VP'), '``': ('U', 'Dear'), '@NP^SQ->_NP^NP_PP^NP': ('U', 'SBAR^NP'), '@VP^S->_VBZ_,': ('U', 'S^VP'), '@VP^S->_VBZ_RB_ADJP^VP': ('U', 'S^VP'), '@VP^VP->_VB_PP^VP_CC': ('U', 'VP^VP'), '@SBAR^VP->_IN_RB': ('U', 'FRAG^SBAR'), '@NP^SBAR->_NP^NP_,': ('U', 'SBAR^NP'), '@VP^S->_VBN_PP^VP_PP^VP': ('U', 'SBAR^VP'), '@S^S->_S^S_,_S^S_,_CC': ('U', 'S^S'), '@ADJP^NP->_JJ_JJ_,_JJ_,_CC': ('U', 'JJ'), '@VP^VP->_VB_NP^VP_NP^VP_PP^VP_,': ('U', 'SBAR^VP'), '@VP^S->_CC_VP^VP_CC': ('U', 'NP^VP'), '@VP^S->_VB_PRT^VP': ('U', 'NP^VP'), '@VP^S->_VBG_PP^VP': ('U', 'NP^VP'), '@SBAR^NP->_IN': ('U', 'S^SBAR'), '@NP^RRC->_NP^NP': ('U', 'SBAR^NP'), '@PP^VP->_IN_CC_IN': ('U', 'NP^PP'), '@S^PP->_S^S_,': ('U', 'S^S'), '@NP^S->_NP^NP_,_INTJ^NP_,': ('U', 'NP^NP'), '@NP^S->_NP^NP_,_CONJP^NP': ('U', 'NP^NP'), '@SBAR^NP->_WHPP^SBAR': ('U', 'S^SBAR'), '@VP^S->_VBD_NP^VP_,': ('U', 'S^VP'), '@ADJP^ADJP->_RB_RB_JJ_CC': ('U', 'JJ'), '@NP^PP->_NNP': ('U', 'NP^NP'), '@VP^VP->_VB_NP^VP_SBAR^VP': ('U', 'S^VP'), '@NP^PP->_NNS': ('U', 'NML^NP'), '@VP^SQ->_VB_PP^VP': ('U', 'SBAR^VP'), "@NP^VP->_NP^NP_,_``_S^NP_''": ('U', 'PRN^NP'), '@NP^VP->_NP^NP_,_NP^NP_,_NP^NP_,_NP^NP_,_CC': ('U', 'NP^NP'), 'JJS': ('U', 'Dear'), 'JJR': ('U', 'Dear'), '@VP^S->_CC_VBD_CC_VBD': ('U', 'SBAR^VP'), '@S^S->_PP^S_,_NP^S_VP^S_,_CC': ('U', 'S^S'), '@SBAR^PP->_WHNP^SBAR': ('U', 'S^SBAR'), 'NP^UCP': ('U', 'JJ'), '@VP^VP->_VB_ADJP^VP': ('U', 'S^VP'), "@NP^NP->_DT_``_NN_''": ('U', 'SBAR^NP'), '@NP^NP->_DT_``': ('U', 'NML^NP'), '@NP^S->_CC_NP^NP_CC': ('U', 'NP^NP'), '@SBAR^SQ->_IN_CC_IN': ('U', 'S^SBAR'), '@S^S->_PP^S': ('U', 'NP^S'), '@VP^S->_VBZ_NP^VP_RB': ('U', 'ADJP^VP'), "@SBAR^VP->_IN_''": ('U', 'S^SBAR'), '@NP^PP->_CC_NP^NP_CC': ('U', 'NP^NP'), '@PP^VP->_IN_,_ADVP^PP_,': ('U', 'PP^PP'), '@PP^FRAG->_IN_:': ('U', 'NP^PP'), '@ADJP^VP->_ADJP^ADJP_,_CC': ('U', 'ADJP^ADJP'), '@PP^VP->_PP^PP_CC_,_PP^PP_,': ('U', 'PP^PP'), '@VP^S->_VP^VP_,_RB': ('U', 'VP^VP'), '@SBAR^NP->_WHADVP^SBAR_,': ('U', 'S^SBAR'), '@NP^VP->_NP^NP_,_NP^NP_,_CC_ADVP^NP': ('U', 'NP^NP'), '@VP^S->_VBD_NP^VP_PP^VP_PP^VP': ('U', 'S^VP'), '@VP^S->_VBZ_ADJP^VP_,_ADVP^VP_,': ('U', 'S^VP'), '@SBAR^UCP->_IN': ('U', 'S^SBAR'), '@SBAR^SBAR->_WHADVP^SBAR': ('U', 'S^SBAR'), '@SBAR^S->_SBAR^SBAR_,_IN': ('U', 'S^SBAR'), '@VP^VP->_VB_,_PRN^VP_,': ('U', 'NP^VP'), '@VP^VP->_MD_RB': ('U', 'VP^VP'), '@VP^S->_VBD_PP^VP_,_S^VP': ('U', 'SBAR^VP'), '@NP^NP->_PP^NP': ('U', 'NP^NP'), "@NP^NP->_NP^NP_,_''_CC": ('U', 'NP^NP'), '@PP^VP->_IN': ('U', 'ADJP^PP'), "@NP^PP->_``_NN_''_CC_``_NN_''_CC_``": ('U', 'JJ'), '@VP^S->_VP^VP_,_VP^VP_CC_VP^VP': ('U', 'NP^VP'), '@SBAR^PP->_WHNP^SBAR_,': ('U', 'S^SBAR'), '@VP^S->_VBD_NP^VP_NP^VP': ('U', 'S^VP'), "@NP^PP->_``_S^NP_''_CC": ('U', 'NP^NP'), '@PP^VP->_PP^PP_CC': ('U', 'PP^PP'), '@NML^ADJP->_DT': ('U', 'JJ'), '@VP^VP->_VBN_PP^VP_SBAR^VP_,': ('U', 'SBAR^VP'), 'LS': ('U', 'Dear'), '@ADJP^VP->_ADJP^ADJP_CC_ADJP^ADJP_CC': ('U', 'ADJP^ADJP'), '@VP^VP->_VBP_NP^VP_,': ('U', 'S^VP'), 'PRN^VP': ('U', 'S^PRN'), '@S^S->_SBAR^S_,': ('U', 'S^S'), "@VP^NP->_VBN_''": ('U', 'NP^VP'), '@NP^NP->_NP^NP_,_NP^NP_,_CC': ('U', 'NP^NP'), '@VP^S->_VBG_NP^VP_SBAR^VP_,': ('U', 'NP^VP'), '@VP^S->_VB_CC_VB': ('U', 'NP^VP'), '@VP^VP->_VP^VP_,_VP^VP_,': ('U', 'NP^VP'), '@VP^S->_VBD_PRT^VP_NP^VP': ('U', 'SBAR^VP'), '@VP^S->_VB_,': ('U', 'NP^VP'), '@S^S->_ADVP^S_,_S^S_,_CC': ('U', 'S^S'), 'S^ADVP': ('U', 'ADJP^S'), '@VP^NP->_ADVP^VP': ('U', 'VP^VP'), '@VP^VP->_VBG_NP^VP_:_PRN^VP_:_PP^VP_,': ('U', 'SBAR^VP'), '@VP^VP->_VP^VP_,_VP^VP_,_CC': ('U', 'VP^VP'), '@UCP^S->_VP^UCP_,_VP^UCP_,_CC': ('U', 'ADJP^UCP'), '@VP^SQ->_VB_NP^VP_EDITED^VP': ('U', 'SBAR^VP'), '@NP^PP->_NP^NP_,_CC': ('U', 'NP^NP'), "@VP^VP->_VBN_``_NP^VP_''_:": ('U', 'S^VP'), '@SBAR^SQ->_WHNP^SBAR': ('U', 'S^SBAR'), '@VP^S->_MD_ADVP^VP_VP^VP_,': ('U', 'SBAR^VP'), '@VP^S->_VP^VP_CC_RB': ('U', 'VP^VP'), '@VP^VP->_VBN_S^VP': ('U', 'SBAR^VP'), '@PP^NP->_ADVP^PP': ('U', 'PP^PP'), '@VP^S->_VP^VP_VP^VP_,': ('U', 'S^VP'), '@VP^VP->_VBN_NP^VP_,': ('U', 'SBAR^VP'), 'NNPS': ('U', 'Dear'), '@UCP^NP->_JJ_CC_NN_CC': ('U', 'JJ'), '@NP^VP->_NP^NP_,_NP^NP_,_NP^NP_,_NP^NP_,_NP^NP_,_NP^NP_,_NP^NP_,_NP^NP_,_NP^NP_,_NP^NP_,_NP^NP_,_NP^NP_,_CC': ('U', 'NP^NP'), '@QP^NP->_RB_DT': ('U', 'JJ'), '@UCP^NP->_NNP_CC': ('U', 'JJ'), '@VP^S->_VBD_RB_ADVP^VP': ('U', 'ADJP^VP'), '@SBAR^VP->_IN_IN': ('U', 'S^SBAR'), '@VP^S->_VBZ_PP^VP_,_PP^VP_,': ('U', 'SBAR^VP'), '@SBAR^UCP->_WHADVP^SBAR': ('U', 'S^SBAR'), '@VP^S->_VB_ADVP^VP': ('U', 'NP^VP'), '@VP^VP->_VBZ_ADVP^VP': ('U', 'ADJP^VP'), '@VP^NP->_VBG_``': ('U', 'NP^VP'), '@ADJP^NP->_NML^ADJP_HYPH': ('U', 'JJ'), '@VP^S->_VBD_,_SBAR^VP_,_ADVP^VP_,': ('U', 'VP^VP'), '@NP^VP->_NP^NP_,_NP^NP_,': ('U', 'NP^NP'), '@S^VP->_SBAR^S_CC': ('U', 'S^S'), '@VP^VP->_VB_S^VP': ('U', 'S^VP'), '@VP^S->_MD_ADVP^VP_DT': ('U', 'VP^VP'), '@VP^VP->_VB_RB': ('U', 'S^VP'), 'S^VP': ('U', 'ADJP^S'), '@NP^NP->_ADVP^NP_NP^NP_,_NP^NP_,_NP^NP_,': ('U', 'NP^NP'), '@VP^S->_RB_TO': ('U', 'VP^VP'), '@VP^S->_VBZ_,_``': ('U', 'S^VP'), '@SBAR^NP->_ADVP^SBAR_,_WHNP^SBAR': ('U', 'S^SBAR'), '@VP^VP->_VP^VP_,_CC_ADVP^VP': ('U', 'VP^VP'), '@VP^S->_VBD_NP^VP_PRT^VP': ('U', 'S^VP'), '@NP^PP->_NP^NP_,_ADJP^NP_,_ADJP^NP_,': ('U', 'ADJP^NP'), '@VP^S->_MD_ADVP^VP_PP^VP': ('U', 'VP^VP'), '@VP^EDITED->_VBN_,': ('U', 'PRN^VP'), '@VP^S->_VBZ_:': ('U', 'S^VP'), '@NP^NP->_NP^NP_,_NP^NP_,_NP^NP_,_NP^NP_,_NP^NP_NP^NP_,_NP^NP_,_NP^NP_,_NP^NP_,': ('U', 'NP^NP'), "@VP^S->_VBD_PP^VP_''": ('U', 'S^VP'), '@VP^S->_VBD_SBAR^VP_,': ('U', 'S^VP'), '@SBAR^SBAR->_SBAR^SBAR_,_IN': ('U', 'S^SBAR'), '@SBAR^SINV->_WHNP^SBAR': ('U', 'S^SBAR'), '@VP^NP->_VBN': ('U', 'S^VP'), "@NP^PP->_NP^NP_,_''": ('U', 'NP^NP'), '@NP^VP->_NP^NP_,_NP^NP_,_NP^NP_CC': ('U', 'NP^NP'), '@NP^VP->_NP^NP_PP^NP': ('U', 'NP^NP'), '@VP^NP->_ADVP^VP_VBN': ('U', 'S^VP'), '@VP^VP->_VP^VP_,_CC': ('U', 'VP^VP'), '@ADJP^ADJP->_JJ_,_JJ_,': ('U', 'JJ'), 'RP': ('U', 'Dear'), '@PRN^VP->_CC': ('U', 'S^PRN'), 'ADJP^PP': ('U', 'JJ'), '@PP^VP->_RB': ('U', 'PP^PP'), '@PP^FRAG->_IN': ('U', 'ADJP^PP'), '@ADJP^SINV->_RBR': ('U', 'JJ'), '@SBAR^S->_IN_IN': ('U', 'S^SBAR'), ',': ('U', 'Dear'), '@SBAR^ADJP->_WHNP^SBAR': ('U', 'S^SBAR'), '@VP^VP->_CC_VP^VP_CC': ('U', 'VP^VP'), "@VP^S->_MD_DT_''_ADVP^VP_''_VP^VP_,": ('U', 'SBAR^VP'), '@S^VP->_NP^S': ('U', 'ADJP^S'), 'PRP': ('U', 'Dear'), 'RB': ('U', 'Dear'), '@PP^S->_TO': ('U', 'NP^PP'), '@NP^PP->_NP^NP_NML^NP': ('U', 'PRN^NP'), '@SBAR^VP->_SBAR^SBAR_,_SBAR^SBAR_,': ('U', 'SBAR^SBAR'), '@NP^NP->_NP^NP_NP^NP_NP^NP_NP^NP_NP^NP_NP^NP_NP^NP_NP^NP_NP^NP_NP^NP_NP^NP_NP^NP_,_NP^NP_,_NP^NP_,_NP^NP_,': ('U', 'NP^NP'), '@S^S->_S^S_,_CC': ('U', 'S^S'), '@ADJP^NP->_JJ_IN': ('U', 'JJ'), '@NP^PP->_NP^NP_INTJ^NP_,': ('U', 'NP^NP'), '@S^PRN->_S^S_,': ('U', 'S^S'), '@VP^VP->_VB_S^VP_,': ('U', 'SBAR^VP'), '@PP^PP->_IN': ('U', 'NP^PP'), '@VP^S->_VBZ_,_ADVP^VP_,': ('U', 'ADJP^VP'), 'SBAR^VP': ('U', 'S^SBAR'), '@PP^WHADVP->_IN': ('U', 'NP^PP'), '@VP^S->_VBP_,': ('U', 'S^VP'), '@VP^VP->_VB_ADVP^VP_,': ('U', 'SBAR^VP'), '@VP^S->_VB_NP^VP_S^VP': ('U', 'SBAR^VP'), '@VP^S->_VBP_:': ('U', 'S^VP'), '@NP^VP->_NP^NP_CONJP^NP': ('U', 'NP^NP'), '@ADJP^VP->_RB_JJ': ('U', 'SBAR^ADJP'), '@VP^S->_VBD_EDITED^VP_PRN^VP_,': ('U', 'NP^VP'), '@SBAR^VP->_IN_``': ('U', 'S^SBAR'), '@ADJP^NP->_ADJP^ADJP_,_ADJP^ADJP_CC_ADVP^ADJP': ('U', 'ADJP^ADJP'), '@NP^PP->_NN': ('U', 'SBAR^NP'), '@UCP^NP->_NN_CC': ('U', 'JJ'), '@NP^NAC->_NP^NP': ('U', 'SBAR^NP'), '@S^ROOT->_S^S_,_CC': ('U', 'S^S'), '@NP^SBARQ->_NP^NP': ('U', 'NP^NP'), '@VP^S->_VBG_NP^VP_PP^VP': ('U', 'S^VP'), '@VP^VP->_VB_PRT^VP_NP^VP_,': ('U', 'SBAR^VP'), '@VP^S->_VBZ_ADVP^VP_,': ('U', 'SBAR^VP'), "@NP^PP->_NP^NP_''": ('U', 'NP^NP'), '@VP^VP->_VB_PRN^VP': ('U', 'NP^VP'), 'SBAR^SQ': ('U', 'S^SBAR'), '@S^SBAR->_PP^S_,': ('U', 'NP^S'), '@VP^SQ->_VBN_ADJP^VP': ('U', 'SBAR^VP'), '@VP^S->_VBP_NP^VP': ('U', 'S^VP'), '@NP^NP->_JJ_,_JJ_,_JJ_,_JJ_,_JJ_,_JJ_,_JJ_,': ('U', 'JJ'), '@NP^S->_NP^NP_,_NP^NP_,_CC': ('U', 'NP^NP'), '@S^S->_S^S_:': ('U', 'S^S'), '@NP^PP->_NP^NP_NN': ('U', 'SBAR^NP'), '@NP^NP->_NP^NP_NP^NP_NP^NP': ('U', 'NP^NP'), '@NP^S->_ADJP^NP': ('U', 'JJ'), '@VP^S->_VBP_ADVP^VP_ADVP^VP': ('U', 'SBAR^VP'), '@VP^VP->_VP^VP_,_CONJP^VP': ('U', 'VP^VP'), '@VP^S->_VBZ_RB_ADVP^VP': ('U', 'NP^VP'), '@NP^PP->_NP^NP_,_NP^NP_,_NP^NP_,_NP^NP_,_CC': ('U', 'NP^NP'), '@ADJP^ADJP->_IN_RB': ('U', 'JJ'), '@NP^VP->_RB_NP^NP_,_CC': ('U', 'NP^NP'), '@FRAG^VP->_ADVP^FRAG': ('U', 'ADJP^FRAG'), '@SBAR^VP->_SBAR^SBAR': ('U', 'SBAR^SBAR'), '@NP^NP->_DT_NN': ('U', 'SBAR^NP'), '@VP^VP->_VBN_PP^VP_,_NP^VP_,': ('U', 'SBAR^VP'), 'NP^NP': ('U', 'JJ'), '@VP^S->_VBD_NP^VP_,_ADVP^VP_,_SBAR^VP': ('U', 'VP^VP'), '@VP^S->_VBG_,_PP^VP_,': ('U', 'SBAR^VP'), '@NP^S->_NP^NP_PP^NP_PP^NP_,': ('U', 'SBAR^NP'), '@SBAR^VP->_RB_SBAR^SBAR_CC': ('U', 'SBAR^SBAR'), '@SBAR^FRAG->_ADVP^SBAR_IN': ('U', 'S^SBAR'), '@S^SBAR->_S^S_CC': ('U', 'S^S'), "@VP^S->_VBD_``_NP^VP_''": ('U', 'PRN^VP'), '@VP^VP->_VBN_CC_VBN': ('U', 'NP^VP'), '@VP^S->_VBZ_S^VP_,': ('U', 'SBAR^VP'), '@VP^S->_VBG_NP^VP_PP^VP_,': ('U', 'S^VP'), '@VP^VP->_VBG_,': ('U', 'S^VP'), '@VP^S->_VBD_CC_VBD': ('U', 'NP^VP'), '@S^SBAR->_S^S_,_S^S_,': ('U', 'S^S'), '@ADJP^VP->_VBN': ('U', 'SBAR^ADJP'), '@S^NP->_S^S_,': ('U', 'S^S'), '@PP^NP->_TO_:_PRN^PP_:': ('U', 'NP^PP'), '@UCP^VP->_PP^UCP_,_CC': ('U', 'ADJP^UCP'), '@SBAR^VP->_IN': ('U', 'ADJP^SBAR'), '@ADJP^NP->_RB': ('U', 'JJ'), "@NP^NP->_NP^NP_,_''": ('U', 'NP^NP'), '@NP^VP->_NP^NP': ('U', 'ADJP^NP'), '@S^SBAR->_S^S_CC_S^S_,': ('U', 'SBAR^S'), '@NP^NP->_DT': ('U', 'JJ'), '@VP^S->_VBZ_-LRB-_ADVP^VP_-RRB-': ('U', 'SBAR^VP'), '@S^NP->_S^S_:': ('U', 'S^S'), '@PP^NP->_PP^PP_CC': ('U', 'PP^PP'), '-LRB-': ('U', 'Dear'), '@FRAG^ROOT->_ADJP^FRAG': ('U', 'PRN^FRAG'), '@SBAR^EDITED->_WHNP^SBAR': ('U', 'S^SBAR'), '@PP^FRAG->_ADVP^PP_IN': ('U', 'NP^PP'), '@S^S->_S^S_,_S^S_,': ('U', 'S^S'), '@VP^S->_VP^VP_:': ('U', 'VP^VP'), '@VP^S->_VBD_,_ADVP^VP_,_ADVP^VP_PP^VP_,_PRN^VP_,_PP^VP_,': ('U', 'SBAR^VP'), '@NP^PP->_NP^NP_:': ('U', 'NP^NP'), '@VP^S->_VBP_PP^VP_SBAR^VP_,': ('U', 'SBAR^VP'), '@NP^NP->_NP^NP_,_NP^NP_,_NP^NP_,_CC': ('U', 'NP^NP'), '@VP^S->_VBZ_RB_,_S^VP_,': ('U', 'NP^VP'), '@PP^VP->_ADVP^PP_IN': ('U', 'ADJP^PP'), '@PP^SQ->_VBN': ('U', 'PP^PP'), '@PP^VP->_PP^PP_:': ('U', 'PP^PP'), '@S^NP->_S^S_CC': ('U', 'S^S'), '@ADJP^NP->_NML^ADJP': ('U', 'JJ'), '@NP^PP->_NP^NP_,': ('U', 'NP^NP'), '@ADJP^ADJP->_JJ_,': ('U', 'JJ'), 'EX': ('U', 'Dear'), '@SBAR^ADVP->_ADVP^SBAR_IN': ('U', 'S^SBAR'), '@VP^S->_VBD_RB_PP^VP_,': ('U', 'S^VP'), '@VP^S->_VBP_PP^VP_,': ('U', 'SBAR^VP'), '@NP^PP->_PRP$': ('U', 'JJ'), '@VP^S->_VP^VP_:_CC_VP^VP_:': ('U', 'NP^VP'), '@VP^S->_VBZ_ADJP^VP_,': ('U', 'S^VP'), '@NP^NP->_NP^NP_,_CC': ('U', 'NP^NP'), '@VP^S->_MD_ADVP^VP': ('U', 'VP^VP'), '@S^SBAR->_S^S_,_CC_S^S_,_CC': ('U', 'S^S'), '-RRB-': ('U', 'Dear'), "@S^VP->_``_S^S_,_S^S_,_''": ('U', 'SBAR^S'), '@VP^S->_VBZ_NP^VP_,': ('U', 'S^VP'), '@PP^RRC->_IN': ('U', 'NP^PP'), '@VP^SQ->_VBG_ADVP^VP': ('U', 'SBAR^VP'), '@VP^VP->_CC_VBN_CC_VBN': ('U', 'NP^VP'), '@NP^NP->_S^NP_:': ('U', 'NP^NP'), 'ADJP^ADJP': ('U', 'JJ'), '@S^PRN->_S^S_CC': ('U', 'S^S'), '@VP^VP->_VB_,_PP^VP_,': ('U', 'NP^VP'), '@VP^S->_VBD_NP^VP_ADVP^VP_,': ('U', 'SBAR^VP'), '@NP^NP->_NP^NP_RB_``': ('U', 'NP^NP'), '@ADJP^NP->_JJ_SYM': ('U', 'JJ'), '@SBAR^S->_WHNP^SBAR': ('U', 'S^SBAR'), '@VP^S->_VBG_NP^VP_NP^VP': ('U', 'NP^VP'), '@PP^VP->_ADVP^PP_TO': ('U', 'NP^PP'), '@VP^SQ->_VB_NP^VP_,': ('U', 'NP^VP'), "@VP^VP->_VB_''": ('U', 'SBAR^VP'), '@NP^SINV->_NP^NP_,_NP^NP_,_CC': ('U', 'NP^NP'), '@VP^S->_VBD_PP^VP': ('U', 'S^VP'), '@PRN^VP->_S^PRN_CC': ('U', 'S^PRN'), "@NP^VP->_DT_''_VBG_NN_''": ('U', 'SBAR^NP'), '@VP^S->_VB_PP^VP_,': ('U', 'NP^VP'), '@PP^NP->_IN_NP^PP': ('U', 'PP^PP'), '@VP^VP->_VBG_ADVP^VP': ('U', 'S^VP'), '@ADJP^NP->_JJ_,_IN': ('U', 'JJ'), '@NP^PP->_DT_JJ': ('U', 'NML^NP'), '@NP^VP->_NP^NP_PP^NP_,': ('U', 'ADJP^NP'), '@PP^S->_VBG': ('U', 'NP^PP'), '@SINV^SBAR->_PP^SINV_VBP_NP^SINV_ADVP^SINV': ('U', 'ADJP^SINV'), "@S^SBAR->_S^S_,_''_CC_,": ('U', 'S^S'), '@ADJP^VP->_JJ_,': ('U', 'JJ'), "@NP^VP->_S^NP_,_''_''_NP^NP_,_''_CONJP^NP": ('U', 'NP^NP'), '@NP^PP->_NP^NP_,_RB': ('U', 'NP^NP'), '@SQ^SBARQ->_VBZ_NP^SQ_PP^SQ': ('U', 'SBAR^SQ'), '@VP^VP->_VBP_S^VP_,': ('U', 'SBAR^VP'), '@VP^SQ->_VB_NP^VP_PP^VP': ('U', 'SBAR^VP'), '@NP^VP->_DT_JJ_NN': ('U', 'SBAR^NP'), '@VP^VP->_VBP_RB': ('U', 'VP^VP'), '@PP^VP->_PP^PP_CC_PP^PP_CC': ('U', 'PP^PP'), '@ADJP^NP->_JJ_,_JJ_CC': ('U', 'JJ'), '@PP^ADVP->_ADVP^PP_IN': ('U', 'NP^PP'), '@PP^ROOT->_TO_:': ('U', 'NP^PP'), '@SBAR^NP->_SBAR^SBAR_CC': ('U', 'SBAR^SBAR'), '@NP^PP->_DT_JJ_NN': ('U', 'SBAR^NP'), '@VP^S->_VP^VP_CC_ADVP^VP': ('U', 'VP^VP'), 'HYPH': ('U', 'Dear'), '@NP^NP->_JJ_,': ('U', 'JJ'), '@VP^VP->_VBN_NP^VP': ('U', 'S^VP'), '@VP^NP->_VBN_PP^VP': ('U', 'S^VP'), '@SBAR^VP->_WHNP^SBAR': ('U', 'S^SBAR'), '@VP^VP->_TO': ('U', 'VP^VP'), '@S^SBAR->_S^S_CC_EDITED^S_S^S_,_CC': ('U', 'S^S'), '@VP^S->_VBZ_RB_ADJP^VP_SBAR^VP_,': ('U', 'SBAR^VP'), '@NP^PP->_NP^NP_,_S^NP_,': ('U', 'NP^NP'), '@NP^NP->_NP^NP_CC_,_PP^NP_,': ('U', 'NP^NP'), '@VP^VP->_VBG_PRT^VP': ('U', 'NP^VP'), '@S^NP->_CC_S^S_CC': ('U', 'S^S'), '@VP^VP->_VBD_NP^VP': ('U', 'S^VP'), '@VP^VP->_VBD_,_PP^VP_,': ('U', 'VP^VP'), '@VP^VP->_VB_PP^VP_SBAR^VP': ('U', 'SBAR^VP'), 'PDT': ('U', 'Dear'), '@VP^VP->_VBP_RB_ADVP^VP': ('U', 'VP^VP'), '@VP^VP->_JJ': ('U', 'NP^VP'), '@PP^NP->_IN': ('U', 'ADJP^PP'), '@S^VP->_S^S_,_RB': ('U', 'S^S'), '@SBAR^FRAG->_WHADVP^SBAR': ('U', 'S^SBAR'), '@SBAR^SBAR->_PP^SBAR_WHNP^SBAR': ('U', 'S^SBAR'), '@SQ^VP->_VBZ_NP^SQ_NP^SQ': ('U', 'SBAR^SQ'), '@VP^S->_VP^VP_CC_VP^VP': ('U', 'NP^VP'), '@NP^S->_NP^NP_,_NP^NP_CC': ('U', 'NP^NP'), '@NP^VP->_NP^NP_,_NP^NP_,_EDITED^NP_SBAR^NP_,': ('U', 'NP^NP'), '@NP^PP->_NP^NP_CC': ('U', 'NP^NP'), "@NP^VP->_''_NP^NP_''_CC_''": ('U', 'NP^NP'), '@VP^S->_VBZ_ADVP^VP_S^VP_,': ('U', 'SBAR^VP'), '@PP^S->_PP^PP_,': ('U', 'PP^PP'), '@SBAR^NP->_WHADJP^SBAR': ('U', 'S^SBAR'), '@VP^VP->_VBN_NP^VP_SBAR^VP': ('U', 'S^VP'), '@SBAR^PP->_IN_CC_RB': ('U', 'S^SBAR'), '@ADJP^UCP->_RB': ('U', 'JJ'), '@SBAR^NP->_WHADVP^SBAR': ('U', 'S^SBAR'), '@SBAR^VP->_IN_IN_,': ('U', 'S^SBAR'), '@PP^NML->_TO': ('U', 'NP^PP'), '@S^S->_ADVP^S': ('U', 'NP^S'), '@VP^S->_VP^VP_CC_VP^VP_CC_PP^VP': ('U', 'VP^VP'), "@VP^S->_VBD_''": ('U', 'ADJP^VP'), '@ADJP^VP->_RB_RBR': ('U', 'JJ'), '@VP^VP->_VBD_NP^VP_NP^VP': ('U', 'VP^VP'), '@VP^S->_NNS': ('U', 'NP^VP'), '@NML^NML->_JJ': ('U', 'JJ'), '@ADJP^NP->_RBS': ('U', 'JJ'), '@ADJP^NP->_RBR': ('U', 'JJ'), '@VP^S->_VP^VP_CC_,': ('U', 'VP^VP'), '@SBAR^VP->_IN_CC_RB': ('U', 'S^SBAR'), '@NP^VP->_PRP$': ('U', 'JJ'), '@NP^VP->_NP^NP_:_NP^NP_CC': ('U', 'NP^NP'), '@NP^S->_NP^NP_,_RB': ('U', 'NP^NP'), '@ADJP^NP->_NN_HYPH': ('U', 'JJ'), '@SBAR^NP->_CC_SBAR^SBAR_CC': ('U', 'SBAR^SBAR'), '@NP^VP->_RB_DT_NML^NP_NN': ('U', 'SBAR^NP'), '@VP^VP->_VB_ADJP^VP_SBAR^VP_,': ('U', 'SBAR^VP'), '@NP^NP->_NP^NP_,_NP^NP_,_NP^NP_CC': ('U', 'NP^NP'), 'SBAR^NP': ('U', 'S^SBAR'), "@NP^VP->_NP^NP_''_CC": ('U', 'NP^NP'), '@VP^S->_VBP_CC': ('U', 'VP^VP'), '@SBAR^NP->_WHPP^SBAR_,': ('U', 'S^SBAR'), '@S^S->_EDITED^S': ('U', 'S^S'), '@NP^NP->_DT_JJ_NN': ('U', 'SBAR^NP'), '@S^S->_ADVP^S_,': ('U', 'SBAR^S'), '@VP^S->_VP^VP_VP^VP_VP^VP_VP^VP': ('U', 'VP^VP'), '@ADJP^S->_JJ_CC': ('U', 'JJ'), '@SBAR^VP->_SBAR^SBAR_,_CC': ('U', 'SBAR^SBAR'), 'DT': ('U', 'Dear'), '@VP^VP->_VBG_ADJP^VP': ('U', 'SBAR^VP'), '@SBAR^S->_IN': ('U', 'ADJP^SBAR'), '@SBAR^FRAG->_IN': ('U', 'S^SBAR'), '@NP^NP->_PP^NP_,': ('U', 'NP^NP'), '@PP^VP->_PP^PP_,': ('U', 'PP^PP'), '@NP^NP->_NP^NP_``': ('U', 'NP^NP'), '@NP^NP->_PP^NP_,_NP^NP_NP^NP_NP^NP_NP^NP_NP^NP_NP^NP': ('U', 'NP^NP'), '@NP^ROOT->_NP^NP': ('U', 'NP^NP'), '@SBAR^VP->_IN_EDITED^SBAR': ('U', 'S^SBAR'), '@VP^VP->_VB_ADVP^VP_NP^VP_PP^VP_PP^VP_,': ('U', 'NP^VP'), '@VP^VP->_VBN_``': ('U', 'ADJP^VP'), '@VP^S->_VBP_,_ADVP^VP_,': ('U', 'SBAR^VP'), '@VP^NP->_ADVP^VP_VBG': ('U', 'NP^VP'), 'POS': ('U', 'Dear'), '@S^S->_ADJP^S_,_ADVP^S_,': ('U', 'SBAR^S'), '@ADJP^NP->_NN': ('U', 'JJ'), '@ADJP^VP->_NN_HYPH': ('U', 'JJ'), '@VP^NP->_ADVP^VP_VBN_PP^VP_,': ('U', 'SBAR^VP'), '@PP^ADVP->_TO': ('U', 'NP^PP'), "@VP^VP->_VBN_''_NP^VP_S^VP": ('U', 'SBAR^VP'), '@ADJP^NP->_ADJP^ADJP': ('U', 'SBAR^ADJP'), '@VP^S->_VBZ_NP^VP_PP^VP': ('U', 'S^VP'), '@PP^QP->_IN': ('U', 'NP^PP'), '@PP^UCP->_IN_IN': ('U', 'NP^PP'), 'PRN^NP': ('U', 'S^PRN'), '@VP^SQ->_VB_PRT^VP': ('U', 'NP^VP'), '@PP^NP->_TO': ('U', 'NP^PP'), '@PP^S->_ADVP^PP_IN': ('U', 'NP^PP'), '@NP^PP->_NP^NP_PP^NP': ('U', 'ADJP^NP'), 'RBS': ('U', 'Dear'), 'RBR': ('U', 'Dear'), '@VP^S->_VBD_DT_ADVP^VP': ('U', 'VP^VP'), '@NP^SINV->_NP^NP_CC': ('U', 'NP^NP'), '@PP^NP->_IN_,': ('U', 'NP^PP'), '@NP^NP->_NP^NP_,_INTJ^NP_,': ('U', 'NP^NP'), '@ADJP^VP->_ADJP^ADJP': ('U', 'SBAR^ADJP'), '@NP^PP->_NP^NP_SYM': ('U', 'NP^NP'), '@PP^VP->_IN_,_INTJ^PP_,': ('U', 'NP^PP'), '@NP^SINV->_NP^NP': ('U', 'NP^NP'), '@VP^VP->_VBN_,': ('U', 'S^VP'), '@VP^S->_-LRB-_VBD_-RRB-': ('U', 'VP^VP'), '@VP^S->_MD_RB_ADVP^VP': ('U', 'VP^VP'), 'VP^VP': ('U', 'NP^VP'), '@NP^PP->_NP^NP_,_NP^NP_,': ('U', 'NP^NP'), '@VP^S->_VBN': ('U', 'S^VP'), '@VP^VP->_VBN_CONJP^VP': ('U', 'NP^VP'), '@VP^S->_VBD': ('U', 'ADJP^VP'), '@VP^S->_VBG': ('U', 'ADJP^VP'), '@VP^S->_VBZ_PP^VP': ('U', 'S^VP'), '@NP^PP->_NP^NP_CONJP^NP': ('U', 'NP^NP'), '@SQ^SBARQ->_VBD_NP^SQ': ('U', 'SBAR^SQ'), '@PP^ADJP->_TO': ('U', 'NP^PP'), '@VP^S->_VBZ_S^VP': ('U', 'SBAR^VP'), '@VP^S->_VBZ': ('U', 'ADJP^VP'), '@NP^VP->_CC_NP^NP_CC': ('U', 'NP^NP'), '@VP^S->_TO_``': ('U', 'VP^VP'), '@NP^NP->_NP^NP_NP^NP_NP^NP_,_NP^NP_,_CC': ('U', 'NP^NP'), '@VP^S->_VBP': ('U', 'ADJP^VP'), '@SBAR^S->_RB': ('U', 'S^SBAR'), 'ADJP^SQ': ('U', 'JJ'), '@VP^S->_VP^VP_,_CC': ('U', 'VP^VP'), "@VP^NP->_ADVP^VP_VBN_''": ('U', 'S^VP'), '@VP^S->_VBG_CC_VBG': ('U', 'NP^VP'), '@SBAR^NP->_WHNP^SBAR': ('U', 'S^SBAR'), '@NP^VP->_DT_VBG': ('U', 'NML^NP'), '@VP^S->_VBG_:_``': ('U', 'S^VP'), '@PP^NML->_IN_HYPH': ('U', 'NP^PP'), '@VP^VP->_VP^VP_,': ('U', 'VP^VP'), '@VP^S->_VBD_ADVP^VP_ADJP^VP': ('U', 'SBAR^VP'), 'WP$': ('U', 'Dear'), '@NP^VP->_NP^NP_CC_ADVP^NP': ('U', 'NP^NP'), '@NP^PP->_NP^NP_,_NP^NP_,_NP^NP_,_CC': ('U', 'NP^NP'), '@VP^SINV->_VB_PRT^VP': ('U', 'ADJP^VP'), '@NP^NP->_NN': ('U', 'JJ'), 'JJ': ('U', 'Dear'), 'WP': ('U', 'Dear'), '@ADJP^NP->_JJ_,_JJ_,_JJ_CC': ('U', 'JJ'), '@ADJP^PP->_ADJP^ADJP_``': ('U', 'ADJP^ADJP'), '@VP^S->_VB_PP^VP': ('U', 'NP^VP'), '@NP^PP->_DT_NN': ('U', 'SBAR^NP'), '@VP^VP->_VP^VP_CC_RB': ('U', 'VP^VP'), '@VP^VP->_VB_NP^VP_ADVP^VP_PP^VP': ('U', 'NP^VP'), '@ADJP^NP->_JJ_HYPH': ('U', 'JJ'), '@NP^SBAR->_NP^NP': ('U', 'NP^NP'), '@S^S->_PRN^S_,_PRN^S_,': ('U', 'S^S'), '@VP^S->_VBP_NP^VP_,': ('U', 'NP^VP'), '@NP^PP->_NP^NP_,_ADVP^NP': ('U', 'NP^NP'), '@VP^VP->_VP^VP_CC_,_PP^VP_,': ('U', 'VP^VP'), '@VP^S->_VBZ_ADJP^VP': ('U', 'S^VP'), '@PP^SBAR->_TO': ('U', 'NP^PP'), '@VP^S->_VBP_NP^VP_:': ('U', 'NP^VP'), '@NP^VP->_CONJP^NP_NP^NP_,_CONJP^NP': ('U', 'NP^NP'), '@VP^S->_VBP_ADJP^VP': ('U', 'SBAR^VP'), "@VP^S->_VBZ_''": ('U', 'ADJP^VP'), '@SBAR^VP->_SBAR^SBAR_IN': ('U', 'S^SBAR'), '@NP^VP->_NP^NP_,_NP^NP_,_NP^NP_,_CC': ('U', 'NP^NP'), '@VP^S->_VBD_NP^VP_PP^VP': ('U', 'SBAR^VP'), '@PRN^NP->_CC': ('U', 'S^PRN'), '@SBAR^NP->_IN_IN': ('U', 'S^SBAR'), '@PP^NML->_IN': ('U', 'NP^PP'), '@SQ^SBARQ->_VBZ_NP^SQ': ('U', 'ADJP^SQ'), '@NP^PP->_NP^NP_,_NP^NP_,_CC': ('U', 'NP^NP'), '@S^VP->_IN': ('U', 'S^S'), '@S^SBAR->_S^S_,': ('U', 'S^S'), '@NP^VP->_IN': ('U', 'NP^NP'), '@S^VP->_S^S_,': ('U', 'S^S'), '@VP^S->_VBD_,_``': ('U', 'S^VP'), '@SBAR^VP->_WHPP^SBAR': ('U', 'S^SBAR'), '@PP^VP->_TO_``': ('U', 'NP^PP'), '@VP^S->_VBD_-LRB-_NP^VP_-RRB-': ('U', 'SBAR^VP'), '@ADVP^S->_ADVP^ADVP_CC': ('U', 'S^ADVP'), '@NP^PP->_NP^NP_,_``': ('U', 'SBAR^NP'), '@SBAR^VP->_CC_SBAR^SBAR_CC': ('U', 'SBAR^SBAR'), '@PP^VP->_PP^PP_,_PP^PP_CC': ('U', 'PP^PP'), '@VP^NP->_VBN_,_ADVP^VP_,': ('U', 'S^VP'), "@S^VP->_''": ('U', 'NP^S'), '@VP^SQ->_VB_ADVP^VP': ('U', 'NP^VP'), '@NP^NP->_DT_NML^NP': ('U', 'NML^NP'), '@NP^VP->_ADJP^NP_,': ('U', 'ADJP^NP'), '@PP^NP->_VBG': ('U', 'NP^PP'), '@VP^NP->_VBG_ADVP^VP': ('U', 'S^VP'), '@NP^PP->_NP^NP_,_NP^NP_CC_ADVP^NP': ('U', 'NP^NP'), '@VP^S->_VP^VP_,_VP^VP_,_VP^VP_CC': ('U', 'VP^VP'), '@VP^S->_VBZ_CC_VBZ': ('U', 'NP^VP'), 'SYM': ('U', 'Dear'), "@S^SBAR->_S^S_,_''": ('U', 'S^S'), "@NP^S->_''_NP^NP_''_CC": ('U', 'NP^NP'), '@S^SBAR->_PP^S_,_NP^S_VP^S': ('U', 'SBAR^S'), '@VP^S->_VBN_PP^VP_,': ('U', 'NP^VP'), '@VP^S->_VBD_NP^VP_ADVP^VP': ('U', 'SBAR^VP'), '@PP^NP->_RB_PP^PP_CC': ('U', 'PP^PP'), '@VP^S->_VBD_PRT^VP': ('U', 'S^VP'), '@ADJP^SQ->_JJ': ('U', 'SBAR^ADJP'), '@VP^NP->_VBP_ADJP^VP': ('U', 'SBAR^VP'), '@SBAR^VP->_ADVP^SBAR_IN': ('U', 'S^SBAR'), '@NP^VP->_NN': ('U', 'SBAR^NP'), '@VP^S->_VBD_NP^VP_PP^VP_,_NP^VP_,': ('U', 'S^VP'), '@NP^UCP->_NP^NP': ('U', 'SBAR^NP'), '@SBAR^VP->_EDITED^SBAR': ('U', 'S^SBAR'), '@VP^S->_VBP_SBAR^VP': ('U', 'S^VP'), '@VP^S->_VP^VP_,_ADVP^VP': ('U', 'VP^VP'), '@VP^VP->_VB_ADVP^VP_NP^VP': ('U', 'S^VP'), '@VP^S->_VBN_PP^VP': ('U', 'S^VP'), '@VP^S->_VP^VP_,_CC_,_SBAR^VP_,': ('U', 'VP^VP'), '@VP^S->_VBP_PRT^VP': ('U', 'S^VP'), '@VP^S->_VP^VP_,_CC_ADVP^VP_VP^VP_,': ('U', 'ADJP^VP'), '@PP^NP->_IN_,_PRN^PP_,': ('U', 'NP^PP'), '@PP^ROOT->_IN_:': ('U', 'NP^PP'), '@S^S->_S^S_S^S_:': ('U', 'S^S'), '@SBAR^FRAG->_SBAR^SBAR_,_IN': ('U', 'S^SBAR'), '@SBAR^SBAR->_PP^SBAR_,_IN': ('U', 'S^SBAR'), '@ADJP^NP->_RB_JJ': ('U', 'SBAR^ADJP'), '@PP^VP->_PP^PP_CONJP^PP': ('U', 'PP^PP'), '@VP^VP->_CONJP^VP_VP^VP_,_CONJP^VP': ('U', 'VP^VP'), '@VP^S->_VBP_PP^VP': ('U', 'NP^VP'), '@NP^ROOT->_NP^NP_:_NP^NP': ('U', 'NP^NP'), '@VP^VP->_MD_ADVP^VP': ('U', 'VP^VP'), '@NP^NP->_DT_JJ_CC_ADVP^NP_,': ('U', 'NP^NP'), '@VP^VP->_VB_PP^VP_PP^VP_,': ('U', 'SBAR^VP'), '@S^NP->_S^S_,_S^S_,_S^S_,_S^S_,_CC': ('U', 'S^S'), '@VP^S->_VBZ_PRT^VP': ('U', 'S^VP'), '@ADJP^NP->_JJ_CC_RB': ('U', 'JJ'), '@S^SBAR->_S^S_:_CC': ('U', 'S^S'), '@VP^S->_VBP_DT': ('U', 'ADJP^VP'), '@NP^S->_DT_NN': ('U', 'SBAR^NP'), '@VP^VP->_VB_NP^VP_PP^VP_,_NP^VP_,': ('U', 'SBAR^VP'), '@PP^NP->_TO_HYPH': ('U', 'NP^PP'), '@VP^S->_VB': ('U', 'ADJP^VP'), "@UCP^PP->_''_NP^UCP_''_CC_''": ('U', 'NP^UCP'), '@NP^VP->_SBAR^NP_CC_NP^NP_CC': ('U', 'NP^NP'), '@VP^ADJP->_TO': ('U', 'VP^VP'), '@NP^S->_NP^NP_,_NP^NP': ('U', 'PRN^NP'), '@NP^PP->_JJ': ('U', 'NML^NP'), '@NP^NP->_ADJP^NP_,_ADJP^NP': ('U', 'NP^NP'), '@S^ROOT->_S^S_:': ('U', 'S^S'), '@ADJP^NP->_JJ': ('U', 'JJ'), '@VP^S->_VBD_RB_,_PP^VP_,': ('U', 'VP^VP'), '@NP^NP->_NP^NP_,_NP^NP_,_S^NP_,_S^NP_,_CC': ('U', 'NP^NP'), '@UCP^NP->_JJ_,_NN_CC': ('U', 'JJ'), '@VP^S->_VBD_NP^VP_NP^VP_,': ('U', 'VP^VP'), '@PP^VP->_CC_IN': ('U', 'NP^PP'), '@VP^S->_VBZ_RB_NP^VP': ('U', 'S^VP'), '@VP^S->_RB_VBG': ('U', 'S^VP'), 'NP^VP': ('U', 'JJ'), '@PP^NP->_PP^PP_,_PP^PP_,_CC': ('U', 'PP^PP'), '@VP^VP->_VBD_PRT^VP': ('U', 'NP^VP'), '@NP^SQ->_NP^NP': ('U', 'SBAR^NP'), '@VP^S->_VBG_ADVP^VP_,_S^VP_,_S^VP_,': ('U', 'NP^VP'), '@S^VP->_ADJP^S': ('U', 'SBAR^S'), '@VP^S->_VBP_NP^VP_NP^VP': ('U', 'NP^VP'), '@S^SBAR->_S^S_,_S^S_,_S^S_,_S^S_,_CC': ('U', 'S^S'), '@ADJP^NP->_JJ_CC': ('U', 'JJ'), '@NP^SINV->_NP^NP_,_PP^NP_,_PP^NP_,_S^NP_,': ('U', 'NP^NP'), 'SBAR^S': ('U', 'S^SBAR'), '@SBAR^SBAR->_WHPP^SBAR': ('U', 'S^SBAR'), '@VP^VP->_VBN_PP^VP_:': ('U', 'S^VP'), "@VP^S->_VBZ_PP^VP_,_''": ('U', 'SBAR^VP'), '@NP^VP->_NP^NP_,': ('U', 'ADJP^NP'), 'S^SBAR': ('U', 'ADJP^S'), '@SBAR^ADVP->_IN': ('U', 'S^SBAR'), '@NP^PP->_NP^NP_,_CONJP^NP': ('U', 'NP^NP'), '@SBAR^VP->_WHADVP^SBAR_,': ('U', 'S^SBAR'), '@VP^S->_VBD_NP^VP_,_SBAR^VP_,': ('U', 'SBAR^VP'), '@ADJP^VP->_JJ': ('U', 'SBAR^ADJP'), '@UCP^NP->_DT_CC': ('U', 'JJ'), '@NP^VP->_NP^NP_:': ('U', 'NP^NP'), '@VP^S->_VBN_PRT^VP': ('U', 'SBAR^VP'), '@SBAR^VP->_SBAR^SBAR_,_SBAR^SBAR_,_CC': ('U', 'SBAR^SBAR'), '@VP^S->_MD_,_PRN^VP_,': ('U', 'VP^VP'), '@VP^S->_VBD_PRT^VP_PP^VP_PP^VP': ('U', 'SBAR^VP'), 'S^PRN': ('U', 'NP^S'), '@VP^S->_VBN_S^VP': ('U', 'SBAR^VP'), '@VP^VP->_VBZ_RB_ADVP^VP': ('U', 'VP^VP'), '@VP^S->_VP^VP_,_VP^VP_,': ('U', 'VP^VP'), '@NP^VP->_JJ': ('U', 'NML^NP'), 'NP^S': ('U', 'JJ'), '@QP^NP->_DT': ('U', 'JJ'), '@NP^SINV->_NP^NP_,_CC': ('U', 'NP^NP'), '@FRAG^ROOT->_NP^FRAG': ('U', 'PRN^FRAG'), '@NP^ROOT->_NP^NP_,_NP^NP_,': ('U', 'NP^NP'), '@VP^VP->_VBN_,_``': ('U', 'S^VP'), "@NP^NP->_ADVP^NP_,_NP^NP_,_''": ('U', 'NP^NP'), '@ADJP^NP->_RB_RBR': ('U', 'JJ'), '@VP^VP->_VP^VP_CC_ADVP^VP_ADVP^VP': ('U', 'VP^VP'), '@ADJP^NP->_RB_RBS': ('U', 'JJ'), '@VP^NP->_VBN_PP^VP_PP^VP': ('U', 'S^VP'), '@SBAR^NP->_WHNP^SBAR_,_PRN^SBAR_,': ('U', 'S^SBAR'), '@VP^NP->_VBN_S^VP': ('U', 'SBAR^VP'), '@ADJP^VP->_ADJP^ADJP_CC_,_PP^ADJP_,': ('U', 'ADJP^ADJP'), '@S^SBAR->_S^S_CC_S^S': ('U', 'SBAR^S'), '@VP^S->_VBD_RB': ('U', 'ADJP^VP'), '@NP^VP->_NP^NP_,_NP^NP_CC': ('U', 'NP^NP'), '@VP^EDITED->_VBD': ('U', 'VP^VP'), '@NP^VP->_VP^NP': ('U', 'NP^NP'), '@NP^ROOT->_:_NP^NP_CC': ('U', 'NP^NP'), '@SBAR^NP->_SBAR^SBAR_,_CC': ('U', 'SBAR^SBAR'), '@PP^NP->_PP^PP_:': ('U', 'PP^PP'), '@SBAR^EDITED->_IN': ('U', 'S^SBAR'), '@VP^VP->_VBN_PP^VP_,_ADVP^VP_,': ('U', 'SBAR^VP'), '.': ('U', 'Dear'), 'PRN^PP': ('U', 'S^PRN'), 'LST^S': ('U', 'JJ'), '@NP^FRAG->_NP^NP_NP^NP': ('U', 'NP^NP'), '@VP^VP->_VP^VP_,_ADVP^VP': ('U', 'VP^VP'), '@S^SBAR->_S^S_,_CONJP^S': ('U', 'S^S'), '@VP^VP->_VBG_PRT^VP_NP^VP': ('U', 'S^VP'), '@VP^S->_VBP_,_PRN^VP_,': ('U', 'VP^VP'), '@NP^S->_NP^NP_,_NP^NP_,': ('U', 'NP^NP'), '@PP^VP->_RP': ('U', 'NP^PP'), '@VP^S->_TO_ADVP^VP': ('U', 'VP^VP'), '@NP^S->_NP^NP_,_CC': ('U', 'NP^NP'), 'CC': ('U', 'Dear'), 'FRAG^SBAR': ('U', 'ADJP^FRAG'), '@S^FRAG->_S^S_CC': ('U', 'S^S'), 'CD': ('U', 'Dear'), '@NP^NP->_NP^NP_NP^NP_,_NP^NP_,_NP^NP_,_CC': ('U', 'NP^NP'), '@NP^PP->_NP^NP_,_NP^NP_,_NP^NP_,_NP^NP_,_NP^NP_,_CC': ('U', 'NP^NP'), '@VP^S->_MD': ('U', 'S^VP'), '@VP^S->_VBD_PP^VP_EDITED^VP_PRN^VP_NP^VP': ('U', 'SBAR^VP'), '@VP^S->_VB_RB': ('U', 'VP^VP'), '@VP^S->_VB_NP^VP_NP^VP_INTJ^VP_,': ('U', 'NP^VP'), '@VP^ROOT->_VBN_:': ('U', 'NP^VP'), '@NP^ROOT->_NP^NP_NP^NP_NP^NP_,_NP^NP': ('U', 'NP^NP'), '@NP^ADVP->_NP^NP_:': ('U', 'NP^NP'), '@PP^NP->_JJ_IN': ('U', 'NP^PP'), '@ADJP^ADJP->_RB': ('U', 'JJ'), 'NML^NP': ('U', 'JJ'), 'ADJP^SBAR': ('U', 'JJ'), '@SBAR^FRAG->_IN_IN': ('U', 'S^SBAR'), '@VP^S->_VBD_S^VP_,': ('U', 'S^VP'), '@NP^S->_NP^NP_EDITED^NP': ('U', 'SBAR^NP'), '@VP^VP->_VBN_PP^VP': ('U', 'S^VP'), '@NP^NP->_NP^NP_,_NP^NP_,_NP^NP_,': ('U', 'NP^NP'), '@VP^S->_VBZ_ADVP^VP_ADJP^VP': ('U', 'S^VP'), '@SBAR^VP->_RB_SBAR^SBAR_,_CC': ('U', 'SBAR^SBAR'), "@VP^S->_VBG_''_ADVP^VP": ('U', 'VP^VP'), '@VP^S->_VP^VP_,_VP^VP_,_ADVP^VP': ('U', 'VP^VP'), '@VP^VP->_VB_PP^VP_,_S^VP_,_PP^VP_EDITED^VP': ('U', 'S^VP'), '@NP^ADVP->_DT': ('U', 'JJ'), '@VP^VP->_VBN_ADVP^VP_,': ('U', 'S^VP'), '@VP^S->_MD_DT': ('U', 'VP^VP'), '@SBAR^VP->_IN_,': ('U', 'S^SBAR'), '@VP^S->_VBG_ADVP^VP_,': ('U', 'NP^VP'), '@S^VP->_S^S_,_CC': ('U', 'S^S'), '@SBAR^SBAR->_S^SBAR_,_SBAR^SBAR_,_IN': ('U', 'S^SBAR'), "@VP^VP->_VBG_NP^VP_,_''": ('U', 'S^VP'), '@NP^FRAG->_NP^NP_,_CC': ('U', 'NP^NP'), '@NP^FRAG->_NP^NP_:': ('U', 'NP^NP'), "@VP^VP->_VB_NP^VP_''": ('U', 'NP^VP'), '@VP^S->_VBD_,_PRN^VP_,': ('U', 'VP^VP'), '@NP^VP->_NP^NP_,_PRN^NP_,': ('U', 'SBAR^NP'), '@PP^UCP->_ADVP^PP_IN': ('U', 'NP^PP'), '@VP^VP->_VBZ_RB': ('U', 'ADJP^VP'), '@SINV^S->_VBP_NP^SINV': ('U', 'ADJP^SINV'), '@PP^PP->_TO': ('U', 'NP^PP'), '@PP^SBARQ->_IN': ('U', 'NP^PP'), '@NP^FRAG->_NP^NP_,': ('U', 'NP^NP'), "@VP^VP->_VBN_''": ('U', 'S^VP'), '@VP^S->_MD_RB': ('U', 'VP^VP'), '@VP^VP->_VBD_PP^VP': ('U', 'S^VP'), '@VP^VP->_VB_PRT^VP': ('U', 'S^VP'), '@ADJP^RRC->_RB': ('U', 'JJ'), '@VP^VP->_NN': ('U', 'NP^VP'), '@NP^PP->_NP^NP_,_NP^NP_,_CC_ADVP^NP': ('U', 'NP^NP'), 'PRN^S': ('U', 'S^PRN'), '@SBAR^PP->_WHADVP^SBAR_NFP': ('U', 'S^SBAR'), '@VP^S->_VBZ_NP^VP_S^VP': ('U', 'SBAR^VP'), '@VP^S->_VB_S^VP_,': ('U', 'NP^VP'), '@VP^S->_VBD_ADVP^VP_,_S^VP_,': ('U', 'SBAR^VP'), '@NP^PP->_UCP^NP': ('U', 'NML^NP'), '@NP^NP->_NP^NP_NP^NP_,_NP^NP_NP^NP_NP^NP': ('U', 'NP^NP'), '@VP^VP->_VBN_S^VP_,': ('U', 'SBAR^VP'), '@NP^EDITED->_DT': ('U', 'NML^NP'), 'ADJP^UCP': ('U', 'JJ'), '@VP^SQ->_VB_NP^VP_ADVP^VP': ('U', 'SBAR^VP'), '@PP^FRAG->_TO_:': ('U', 'NP^PP'), '@SBAR^SQ->_WRB_IN': ('U', 'S^SBAR'), '@VP^S->_VBZ_RB_ADJP^VP_,': ('U', 'SBAR^VP'), '@UCP^ADJP->_VP^UCP_CONJP^UCP': ('U', 'ADJP^UCP'), "@VP^S->_VBD_,_''": ('U', 'S^VP'), '@VP^S->_VBZ_,_PRN^VP_,': ('U', 'NP^VP'), '@VP^S->_VBP_ADJP^VP_,': ('U', 'S^VP'), '@VP^S->_VP^VP': ('U', 'VP^VP'), '@S^S->_S^S_,': ('U', 'S^S'), 'VB': ('U', 'Dear'), '@SBAR^VP->_RB': ('U', 'S^SBAR'), '@NP^VP->_DT_NN_NN_NN_,': ('U', 'ADJP^NP'), '@ADJP^FRAG->_RB': ('U', 'JJ'), '@ADJP^SQ->_RB': ('U', 'JJ'), '@PP^NP->_PP^PP_,_CC_,_PP^PP_,': ('U', 'PP^PP'), "@VP^S->_VBD_NP^VP_PP^VP_,_''": ('U', 'NP^VP'), '@VP^VP->_VBZ_S^VP': ('U', 'S^VP'), '@VP^NP->_VBG_NP^VP': ('U', 'S^VP'), '@VP^S->_TO_NFP': ('U', 'VP^VP'), '@NP^NP->_NP^NP_,_NP^NP_,': ('U', 'NP^NP'), '@PP^S->_VBN': ('U', 'NP^PP'), '@VP^S->_VBZ_S^VP_PP^VP_,': ('U', 'S^VP'), '@PP^NP->_PP^PP_,_CONJP^PP': ('U', 'PP^PP'), '@SBAR^VP->_WHADVP^SBAR': ('U', 'FRAG^SBAR'), '@PP^SBAR->_IN_IN': ('U', 'NP^PP'), 'IN': ('U', 'Dear'), '@SBAR^VP->_SBAR^SBAR_,': ('U', 'SBAR^SBAR'), '@NP^NP->_NP^NP_,_NP^NP_:': ('U', 'NP^NP'), '@NP^PP->_NP^NP_CC_NP^NP_CC': ('U', 'NP^NP'), '@VP^S->_VBZ_ADVP^VP_NP^VP': ('U', 'SBAR^VP'), "@PP^S->_IN_''": ('U', 'NP^PP'), '@VP^S->_VBD_NP^VP_PP^VP_,': ('U', 'NP^VP'), '@NP^VP->_NP^NP_NN': ('U', 'SBAR^NP'), '@SBAR^S->_ADVP^SBAR_IN': ('U', 'S^SBAR'), '@NP^NP->_NP^NP_CC': ('U', 'NP^NP'), '@ADJP^NP->_JJ_,_CC': ('U', 'JJ'), '@ADJP^VP->_JJ_CC_,_ADVP^ADJP_,': ('U', 'JJ'), '@VP^S->_VBZ_NP^VP': ('U', 'S^VP'), '@VP^NP->_VBN_PRT^VP_,_PP^VP_,_SBAR^VP_,': ('U', 'S^VP'), '@NP^VP->_DT_VBN': ('U', 'NML^NP'), '@VP^VP->_VP^VP_,_VP^VP_,_VP^VP_,_VP^VP_,_CC': ('U', 'VP^VP'), '@S^SBAR->_S^S_,_S^S_,_CC': ('U', 'S^S'), '@PP^SBAR->_IN': ('U', 'NP^PP'), '@VP^S->_VBZ_RB': ('U', 'ADJP^VP'), '@VP^SINV->_VBD_NP^VP': ('U', 'NP^VP'), '@NP^NP->_NNP_NNP_,_NP^NP_,_CC': ('U', 'NP^NP'), '@VP^S->_VBP_RB': ('U', 'ADJP^VP'), '@ADJP^VP->_ADJP^ADJP_SBAR^ADJP': ('U', 'SBAR^ADJP'), '@VP^VP->_VP^VP_CONJP^VP': ('U', 'VP^VP'), '@S^SBAR->_EDITED^S': ('U', 'S^S'), '@VP^VP->_VBN_,_ADVP^VP_,_PRN^VP_,': ('U', 'SBAR^VP'), '@PP^VP->_IN_IN': ('U', 'NP^PP'), '@VP^S->_VBD_ADVP^VP_ADVP^VP': ('U', 'VP^VP'), '@NP^PP->_NP^NP_,_NP^NP_,_NP^NP_,_NP^NP_,_NP^NP_,_NP^NP_,_CC': ('U', 'NP^NP'), '@VP^S->_VBD_,_ADVP^VP_,': ('U', 'NP^VP'), '@NP^VP->_NP^NP_,_NP^NP_,_CC': ('U', 'NP^NP'), '@NP^PP->_JJ_JJ': ('U', 'NML^NP'), '@ADJP^VP->_NML^ADJP': ('U', 'JJ'), '@VP^S->_VBP_NP^VP_,_ADVP^VP_,': ('U', 'S^VP'), "@NP^PP->_''_NP^NP_,_''_PRN^NP_,": ('U', 'SBAR^NP'), '@VP^VP->_VBG_ADVP^VP_S^VP_:': ('U', 'NP^VP'), '@NP^NP->_NN_,_NN_CC': ('U', 'NP^NP'), 'WDT': ('U', 'Dear'), '@S^SBAR->_S^S_,_S^S_,_FRAG^S_,': ('U', 'S^S'), '@PP^VP->_IN_``': ('U', 'NP^PP'), '@VP^S->_VBG_ADVP^VP': ('U', 'NP^VP'), 'ADJP^SINV': ('U', 'JJ'), '@NP^VP->_NP^NP_,_CC': ('U', 'NP^NP'), '@NP^VP->_NP^NP_``': ('U', 'NP^NP'), '@VP^NP->_VBG_PRT^VP': ('U', 'NP^VP'), '@VP^S->_VP^VP_CC_PP^VP': ('U', 'VP^VP'), '@ADJP^VP->_RB': ('U', 'JJ'), '@NP^NP->_NP^NP_,_NP^NP_,_NP^NP_,_NP^NP_,_NP^NP_,_NP^NP_,_NP^NP_,_NP^NP_,_NP^NP_,_NP^NP_,_NP^NP_,_CC': ('U', 'NP^NP'), '@VP^VP->_VBP_NP^VP': ('U', 'SBAR^VP'), '$': ('U', 'Dear'), '@NP^VP->_DT_NML^NP_,_NML^NP_,_NML^NP_,_NML^NP_,': ('U', 'NML^NP'), '@VP^S->_VBG_SBAR^VP_PP^VP_,': ('U', 'S^VP'), '@PP^VP->_PP^PP_,_CC': ('U', 'PP^PP'), '@SBAR^S->_WHADVP^SBAR': ('U', 'FRAG^SBAR'), 'FW': ('U', 'Dear'), '@VP^S->_VBD_ADVP^VP_PP^VP': ('U', 'S^VP'), '@VP^S->_VBP_,_PP^VP_,_ADVP^VP': ('U', 'NP^VP'), '@ADJP^ADJP->_JJ_CC': ('U', 'JJ'), '@VP^S->_VB_,_ADVP^VP_,_SQ^VP': ('U', 'SBAR^VP'), '@S^S->_S^S_,_CC_SBARQ^S_:': ('U', 'S^S'), '@NP^S->_DT_NML^NP_NNP': ('U', 'NML^NP'), '@S^FRAG->_S^S_,_CC': ('U', 'S^S'), '@NP^VP->_RB_DT': ('U', 'JJ'), 'NNS': ('U', 'Dear'), '@PP^NP->_ADVP^PP_IN': ('U', 'NP^PP'), 'NNP': ('U', 'Dear'), '@VP^S->_VBG_NP^VP_,': ('U', 'SBAR^VP'), '@VP^EDITED->_VBP': ('U', 'VP^VP'), '@VP^SINV->_VBN_PRT^VP': ('U', 'NP^VP'), '@NP^VP->_ADVP^NP_NP^NP_,': ('U', 'NP^NP'), '@PP^VP->_JJ_IN': ('U', 'NP^PP'), '@VP^NP->_VB': ('U', 'S^VP'), '@VP^VP->_VBG_NP^VP_PP^VP': ('U', 'SBAR^VP'), '@VP^VP->_VBN_NP^VP_S^VP': ('U', 'SBAR^VP'), '@SBAR^X->_WHNP^SBAR': ('U', 'S^SBAR'), '@NP^VP->_CONJP^NP_NP^NP_,_CC': ('U', 'NP^NP'), '@VP^S->_CONJP^VP_VP^VP_CC': ('U', 'VP^VP'), '@WHADJP^SBARQ->_WRB': ('U', 'JJ'), '@S^EDITED->_PP^S_,': ('U', 'NP^S'), '@VP^SBAR->_VBG_NP^VP_,': ('U', 'S^VP'), '@NP^PP->_PRP$_JJ': ('U', 'JJ'), '@SBAR^ADJP->_IN': ('U', 'S^SBAR'), '@VP^S->_VBZ_PRT^VP_PP^VP': ('U', 'S^VP'), 'SBAR^ADJP': ('U', 'S^SBAR'), '@VP^VP->_MD_,_PP^VP_,': ('U', 'VP^VP'), '@NP^VP->_NP^NP_NNS': ('U', 'SBAR^NP'), '@VP^S->_VP^VP_CC_ADVP^VP_VP^VP': ('U', 'NP^VP'), '@VP^VP->_VB_NFP': ('U', 'NP^VP'), '@VP^VP->_VB_PP^VP': ('U', 'S^VP'), '@PP^VP->_PP^PP_,_CONJP^PP': ('U', 'PP^PP'), '@VP^VP->_VBG_PP^VP': ('U', 'S^VP'), '@ADJP^NP->_ADVP^ADJP': ('U', 'JJ'), '@VP^S->_VBZ_SBAR^VP_ADVP^VP_,': ('U', 'SBAR^VP'), '@NP^PP->_NP^NP_SBAR^NP': ('U', 'SBAR^NP'), '@VP^S->_VBD_,_VBD_,_CC_VBD': ('U', 'NP^VP'), "@VP^S->_VBD_ADVP^VP_NP^VP_,_''": ('U', 'SBAR^VP'), '@VP^S->_VBP_ADVP^VP': ('U', 'ADJP^VP'), '@PP^VP->_IN_,_PP^PP_,': ('U', 'NP^PP'), '@PRN^S->_CC': ('U', 'S^PRN'), '@VP^S->_VP^VP_CC_VP^VP_,': ('U', 'S^VP'), '@ADJP^NP->_CC_JJ_CC': ('U', 'JJ'), '@VP^S->_VBZ_NP^VP_S^VP_PP^VP': ('U', 'SBAR^VP'), '@ADJP^FRAG->_JJ_CC': ('U', 'JJ'), '@NP^S->_NP^NP_PP^NP': ('U', 'ADJP^NP'), '@VP^S->_VP^VP_,_VP^VP_,_CC': ('U', 'VP^VP'), '@NP^VP->_NP^NP_,_NP^NP_,_NP^NP_,_NP^NP_,_NP^NP_,_NP^NP_,_NP^NP_,_NP^NP_,_NP^NP_,_NP^NP_,_ADJP^NP_,_NP^NP_,_NP^NP_,_CC': ('U', 'NP^NP'), "@NP^VP->_``_NP^NP_PP^NP_''": ('U', 'SBAR^NP'), '@PP^NP->_VBG_,_IN_,_CC_VBG': ('U', 'NP^PP'), '@SBAR^NP->_WHNP^SBAR_,': ('U', 'S^SBAR'), '@SBAR^PP->_WHADVP^SBAR': ('U', 'S^SBAR'), '@NP^S->_NP^NP_SBAR^NP_,': ('U', 'SBAR^NP'), '@VP^VP->_VBN_NP^VP_,_ADVP^VP_,_PP^VP_,': ('U', 'SBAR^VP'), '@PP^NP->_IN_,_INTJ^PP_,': ('U', 'NP^PP'), '@VP^VP->_VB_CC_VB_CC_VB': ('U', 'NP^VP'), '@VP^VP->_VBG_NP^VP_EDITED^VP': ('U', 'S^VP'), '@NP^ADVP->_NP^NP_CC': ('U', 'NP^NP'), '@VP^S->_VBD_NP^VP': ('U', 'S^VP'), '@VP^S->_VBD_S^VP': ('U', 'SBAR^VP'), '@VP^VP->_VB_NP^VP_NP^VP': ('U', 'SBAR^VP'), '@NP^VP->_NP^NP_CC_EDITED^NP': ('U', 'NP^NP'), '@VP^S->_VBZ_NP^VP_-LRB-_ADVP^VP_-RRB-': ('U', 'S^VP'), '@VP^S->_VP^VP_,_CC_ADVP^VP': ('U', 'VP^VP'), '@VP^S->_VBD_:_``': ('U', 'S^VP'), '@VP^VP->_VB_NP^VP_NP^VP_,': ('U', 'SBAR^VP'), '@NP^ROOT->_NP^NP_NP^NP_NP^NP_,_NP^NP_,': ('U', 'NP^NP'), '@PP^ADVP->_IN_HYPH': ('U', 'NP^PP'), '@SBAR^SQ->_WHADVP^SBAR': ('U', 'S^SBAR'), 'ADJP^VP': ('U', 'JJ'), '@PP^PP->_NP^PP_IN': ('U', 'NP^PP'), '@VP^VP->_VB_,': ('U', 'S^VP'), '@S^S->_PP^S_,_S^S_,_S^S_,_S^S_,_CC': ('U', 'S^S'), '@VP^VP->_VP^VP_CC': ('U', 'VP^VP'), '@ADJP^VP->_ADVP^ADJP': ('U', 'JJ'), '@VP^VP->_VBP_PRT^VP': ('U', 'S^VP'), '@VP^S->_VBD_ADJP^VP_,': ('U', 'S^VP'), '@PP^NP->_IN_:': ('U', 'NP^PP'), '@S^SBAR->_S^S_:_PRN^S_:': ('U', 'S^S'), '@PP^ADVP->_IN': ('U', 'ADJP^PP'), '@VP^S->_VBP_EDITED^VP_EDITED^VP_PRN^VP_,_PRN^VP_,': ('U', 'VP^VP'), '@VP^S->_VBD_,_S^VP_,': ('U', 'SBAR^VP'), '@NP^PP->_NP^NP': ('U', 'ADJP^NP'), '@VP^VP->_VBN_,_NP^VP_,': ('U', 'SBAR^VP'), '@VP^VP->_VBN_PRT^VP': ('U', 'S^VP'), '@NP^VP->_NP^NP_,_PRN^NP': ('U', 'NP^NP'), '@ADJP^ADJP->_NML^ADJP': ('U', 'JJ'), '@S^S->_S^S_CC': ('U', 'S^S'), '@SBAR^SBAR->_IN': ('U', 'S^SBAR'), '@VP^S->_VB_NP^VP': ('U', 'S^VP'), '@VP^SBAR->_TO': ('U', 'VP^VP'), '@SBAR^S->_SINV^SBAR_CC': ('U', 'SBAR^SBAR'), '@VP^S->_VBP_RB_ADVP^VP': ('U', 'S^VP'), '@ADJP^S->_RBR': ('U', 'JJ'), '@NP^PP->_``_NP^NP_-LRB-_ADJP^NP_-RRB-': ('U', 'NP^NP'), '@PP^VP->_ADVP^PP_IN_IN': ('U', 'NP^PP'), '@VP^S->_VBD_ADJP^VP': ('U', 'S^VP'), '@NP^NP->_ADVP^NP_,': ('U', 'NP^NP'), '@VP^VP->_VBZ': ('U', 'ADJP^VP'), '@VP^S->_VBD_NP^VP_PRT^VP_PP^VP_,': ('U', 'NP^VP'), '@VP^S->_VBD_,_``_NP^VP': ('U', 'VP^VP'), '@VP^S->_VP^VP_:_ADVP^VP_:': ('U', 'NP^VP'), '@VP^VP->_VP^VP_CC_VP^VP': ('U', 'NP^VP'), '@ADJP^NP->_RB_RB': ('U', 'JJ'), '@VP^VP->_VBG': ('U', 'S^VP'), '@VP^VP->_VBD': ('U', 'ADJP^VP'), '@S^SBAR->_SBAR^S': ('U', 'S^S'), '@PP^VP->_PP^PP_,_PP^PP_,_PP^PP_,_PP^PP_,_CC': ('U', 'PP^PP'), '@VP^S->_VBZ_RB_ADVP^VP_ADVP^VP_VP^VP_-RRB-': ('U', 'NP^VP'), '@VP^S->_VBP_RB_,_PP^VP_,': ('U', 'NP^VP'), '@NP^VP->_NP^NP_,_NP^NP': ('U', 'NP^NP'), '@PP^NP->_IN_``': ('U', 'ADJP^PP'), '@SBAR^VP->_PP^SBAR_IN': ('U', 'S^SBAR'), '@SBAR^NP->_IN_,': ('U', 'S^SBAR'), '@VP^VP->_VBP_NP^VP_:': ('U', 'S^VP'), "@NP^VP->_NP^NP_:_''": ('U', 'SBAR^NP'), '@VP^S->_VB_,_S^VP_,': ('U', 'SBAR^VP'), '@NP^VP->_NP^NP_,_NP^NP_,_NP^NP_,': ('U', 'NP^NP'), '@PP^PRN->_IN': ('U', 'NP^PP'), '@VP^S->_VBD_DT': ('U', 'ADJP^VP'), '@PP^NP->_PP^PP_,': ('U', 'PP^PP'), '@VP^S->_SYM': ('U', 'NP^VP'), '@NP^ROOT->_NP^NP_CC': ('U', 'NP^NP'), '@VP^VP->_VB_NP^VP_,_PRN^VP_,': ('U', 'NP^VP'), '@VP^VP->_VBG_PP^VP_ADVP^VP': ('U', 'S^VP'), '@PP^SINV->_ADVP^PP_IN': ('U', 'NP^PP'), '@VP^S->_VBZ_ADVP^VP_RB': ('U', 'ADJP^VP'), 'UH': ('U', 'Dear'), '@VP^VP->_VBN_PP^VP_,': ('U', 'S^VP'), '@NP^VP->_DT': ('U', 'JJ'), '@PP^NP->_IN_NN': ('U', 'NP^PP'), '@S^VP->_:_FRAG^S_CC': ('U', 'S^S'), '@VP^S->_VB_ADVP^VP_ADVP^VP_,': ('U', 'SBAR^VP'), '@NP^SINV->_NP^NP_,': ('U', 'NP^NP'), "@SBAR^VP->_SBAR^SBAR_,_''_CC": ('U', 'SBAR^SBAR'), '@NP^VP->_NP^NP_,_NP^NP_,_NP^NP_CC_NP^NP_CC': ('U', 'NP^NP'), '@VP^S->_VBP_,_SBAR^VP_,': ('U', 'S^VP'), '@NP^NP->_NP^NP_,_NP^NP': ('U', 'NP^NP'), '@PP^ROOT->_IN': ('U', 'NP^PP'), '@SBAR^NP->_SBAR^SBAR_CC_SBAR^SBAR_CC': ('U', 'SBAR^SBAR'), 'PRN^ADJP': ('U', 'S^PRN'), '@VP^NP->_VBG': ('U', 'S^VP'), 'PRN^FRAG': ('U', 'S^PRN'), '@SBAR^EDITED->_IN_IN_,': ('U', 'S^SBAR'), '@NP^S->_PRP$_JJ': ('U', 'NML^NP'), '@NP^VP->_NP^NP_:_PRN^NP_:': ('U', 'SBAR^NP'), '@NP^VP->_RB': ('U', 'NML^NP'), '@NP^NP->_NP^NP_CC_NP^NP_CC': ('U', 'NP^NP'), '@PP^S->_IN_IN': ('U', 'NP^PP'), '@NP^VP->_PRP$_NN': ('U', 'SBAR^NP'), '@VP^S->_VP^VP_,_VP^VP_CC': ('U', 'VP^VP'), '@ADJP^VP->_RB_JJ_,_JJ_CC': ('U', 'JJ'), '@NP^PP->_NP^NP_,_PRN^NP_,': ('U', 'NP^NP'), '@S^SBAR->_S^S_,_EDITED^S_CC': ('U', 'S^S'), '@NP^ROOT->_NP^NP_NP^NP_NP^NP_NP^NP_NP^NP_,_NP^NP': ('U', 'NP^NP'), '@NP^VP->_NP^NP_CC_NP^NP_CC': ('U', 'NP^NP'), '@NP^NP->_NP^NP': ('U', 'ADJP^NP'), '@NP^VP->_NP^NP_,_CONJP^NP': ('U', 'NP^NP'), "@PP^VP->_IN_''": ('U', 'NP^PP'), '@S^S->_NP^S_VP^S_,_PRN^S': ('U', 'PRN^S'), 'NN': ('U', 'Dear'), '@VP^VP->_VB_,_PRN^VP_,_ADVP^VP': ('U', 'NP^VP'), '@NP^S->_NP^NP_PP^NP_,': ('U', 'ADJP^NP'), '@ADJP^VP->_ADJP^ADJP_,_CONJP^ADJP': ('U', 'ADJP^ADJP'), '@VP^S->_VBZ_,_PP^VP_,': ('U', 'NP^VP'), '@VP^VP->_VBD_RB': ('U', 'VP^VP'), '@VP^S->_VBP_PP^VP_:': ('U', 'SBAR^VP'), '@NP^PP->_NP^NP_:_``': ('U', 'NP^NP'), '@VP^S->_VBZ_VP^VP_-LRB-_NP^VP_-RRB-': ('U', 'S^VP'), '@S^SBAR->_SBAR^S_,_SBAR^S_,_S^S_,_CC': ('U', 'S^S'), '@NP^PP->_NP^NP_,_NP^NP_,_NP^NP_CC': ('U', 'NP^NP'), '@PP^UCP->_IN': ('U', 'NP^PP'), '@PP^FRAG->_TO': ('U', 'NP^PP'), ':': ('U', 'Dear'), 'ADJP^S': ('U', 'JJ'), '@PP^SQ->_IN': ('U', 'NP^PP'), '@NP^PP->_NP^NP_CC_SBAR^NP_CC': ('U', 'SBAR^NP'), '@NP^SQ->_NP^NP_,': ('U', 'SBAR^NP'), '@ADJP^S->_NML^ADJP': ('U', 'JJ'), '@NP^NP->_PRP$': ('U', 'JJ'), '@VP^VP->_VBG_ADVP^VP_PP^VP': ('U', 'S^VP'), "@VP^S->_''_VBZ_''_NP^VP": ('U', 'S^VP'), '@VP^VP->_VB_NP^VP_PP^VP_,': ('U', 'NP^VP'), '@VP^S->_VP^VP_CC_VP^VP_PP^VP_,_ADVP^VP_,': ('U', 'S^VP'), '@VP^S->_VB_NP^VP_PP^VP': ('U', 'NP^VP'), '@NP^PP->_PRP$_NN': ('U', 'SBAR^NP'), '@PP^VP->_VBG': ('U', 'NP^PP'), '@VP^VP->_VBN_PP^VP_PP^VP': ('U', 'SBAR^VP'), 'NP^PP': ('U', 'JJ'), '@ADJP^ADJP->_ADVP^ADJP': ('U', 'JJ'), '@VP^S->_VP^VP_:_CC': ('U', 'VP^VP'), '@PP^SBAR->_ADVP^PP_IN': ('U', 'NP^PP'), '@SBAR^PRN->_IN': ('U', 'FRAG^SBAR'), '@NP^S->_NP^NP_NP^NP_,': ('U', 'NP^NP'), '@SBAR^S->_SBAR^SBAR_CC': ('U', 'SBAR^SBAR'), '@VP^VP->_VBG_PP^VP_,': ('U', 'S^VP'), '@PP^NAC->_IN': ('U', 'NP^PP'), '@ADJP^VP->_JJ_CC': ('U', 'JJ'), '@VP^VP->_VBZ_-LRB-_ADVP^VP_-RRB-': ('U', 'NP^VP'), '@VP^VP->_VB_NP^VP_PRT^VP_PP^VP_,': ('U', 'NP^VP'), '@VP^SQ->_VB': ('U', 'ADJP^VP'), '@VP^S->_VBD_RB_ADJP^VP_ADVP^VP_,': ('U', 'SBAR^VP'), '@NP^PP->_S^NP_CC': ('U', 'NP^NP'), "@PP^NP->_IN_''": ('U', 'NP^PP'), '@NP^NP->_NP^NP_,': ('U', 'ADJP^NP'), '@PP^NP->_NN_SYM_IN': ('U', 'NP^PP'), '@NP^NP->_NP^NP_,_NP^NP_CC': ('U', 'NP^NP'), '@VP^S->_VBZ_PP^VP_,_ADVP^VP_,': ('U', 'NP^VP'), "@VP^S->_VBZ_PP^VP_S^VP_,_''": ('U', 'S^VP'), '@NP^NP->_NP^NP_:': ('U', 'NP^NP'), '@PP^NP->_RB_IN_``': ('U', 'NP^PP'), '@VP^VP->_VBN_PP^VP_ADVP^VP_,': ('U', 'S^VP'), '@NP^VP->_NNS': ('U', 'SBAR^NP'), '@ADJP^S->_JJ': ('U', 'SBAR^ADJP'), '@ADJP^ADJP->_RB_RB': ('U', 'JJ'), '@PP^NAC->_ADVP^PP_IN_IN': ('U', 'NP^PP'), '@NP^S->_NNS': ('U', 'ADJP^NP'), '@NP^NP->_NNS': ('U', 'SBAR^NP'), '@S^S->_S^S_CC_S^S_,_CC': ('U', 'S^S'), '@VP^VP->_VB_ADVP^VP': ('U', 'S^VP'), '@VP^VP->_VB_SBAR^VP_,': ('U', 'SBAR^VP'), '@VP^S->_VBG_NP^VP': ('U', 'S^VP'), '@VP^S->_VBZ_RB_PP^VP_ADJP^VP': ('U', 'SBAR^VP'), '@NP^PP->_NP^NP_,_NP^NP_,_CC_,_ADVP^NP_,': ('U', 'NP^NP'), "''": ('U', 'Dear'), '@VP^S->_VBD_NP^VP_,_PP^VP_,': ('U', 'S^VP'), '@VP^VP->_VBN_,_PRN^VP_,': ('U', 'SBAR^VP'), '@PP^SINV->_TO': ('U', 'NP^PP'), '@NP^S->_PRP$': ('U', 'NML^NP'), '@NP^VP->_NP^NP_,_CC_ADVP^NP': ('U', 'NP^NP'), '@NP^S->_NP^NP': ('U', 'ADJP^NP'), '@PP^NP->_VBG_:': ('U', 'NP^PP'), '@ADJP^VP->_RBR': ('U', 'JJ'), '@VP^SQ->_VB_S^VP': ('U', 'SBAR^VP'), '@NP^PP->_SBAR^NP_,': ('U', 'NP^NP'), '@NP^PP->_SBAR^NP_,_``': ('U', 'NP^NP'), '@NP^VP->_RB_NP^NP_CC_:_PRN^NP_:': ('U', 'NP^NP'), '@FRAG^ROOT->_NFP_NP^FRAG_NFP': ('U', 'PRN^FRAG'), "@VP^S->_VP^VP_,_''_CC": ('U', 'VP^VP'), '@SBAR^VP->_ADVP^SBAR_WHNP^SBAR': ('U', 'S^SBAR'), '@ADJP^RRC->_NP^ADJP': ('U', 'JJ'), '@NP^NP->_NP^NP_NP^NP': ('U', 'NP^NP'), '@ADJP^S->_RB': ('U', 'JJ'), '@VP^VP->_VP^VP_CC_ADVP^VP': ('U', 'VP^VP'), '@S^SINV->_S^S_,': ('U', 'S^S'), '@VP^VP->_VBD_ADVP^VP': ('U', 'S^VP'), 'TO': ('U', 'Dear'), '@PP^ADJP->_IN': ('U', 'NP^PP'), '@VP^S->_VBP_S^VP_,': ('U', 'SBAR^VP'), '@VP^SQ->_VB_NP^VP': ('U', 'S^VP'), '@NP^PP->_SBAR^NP_:': ('U', 'NP^NP'), '@PP^S->_NP^PP_IN': ('U', 'NP^PP'), '@ADJP^VP->_NP^ADJP': ('U', 'JJ'), '@WHADJP^SBAR->_WRB': ('U', 'JJ'), '@S^S->_NP^S': ('U', 'ADJP^S'), '@VP^S->_VBZ_ADVP^VP': ('U', 'ADJP^VP'), '@VP^VP->_VB_NP^VP_PP^VP': ('U', 'S^VP'), '@SBAR^NML->_WHNP^SBAR': ('U', 'S^SBAR'), '@SBAR^SINV->_IN': ('U', 'S^SBAR'), '@VP^S->_VBP_NP^VP_PP^VP': ('U', 'S^VP'), '@VP^S->_VBP_S^VP': ('U', 'SBAR^VP'), '@PP^VP->_PP^PP': ('U', 'PP^PP'), '@VP^S->_VBD_NP^VP_SBAR^VP_,': ('U', 'SBAR^VP'), '@VP^VP->_VB_NP^VP_S^VP': ('U', 'SBAR^VP'), '@PP^NP->_PP^PP': ('U', 'PP^PP'), '@ADJP^NP->_JJ_,_JJ_,_CC': ('U', 'JJ'), '@PP^S->_ADVP^PP_TO': ('U', 'NP^PP'), "@NP^NP->_NP^NP_''": ('U', 'NML^NP'), '@VP^S->_VBZ_,_SBAR^VP_,': ('U', 'NP^VP'), "@NP^FRAG->_NP^NP_,_''": ('U', 'SBAR^NP'), '@VP^VP->_VB_ADVP^VP_PP^VP': ('U', 'NP^VP'), "@NP^NP->_``_S^NP_,_''_PRN^NP": ('U', 'NP^NP'), '@UCP^VP->_NP^UCP_CC': ('U', 'ADJP^UCP'), '@SBAR^SBARQ->_IN': ('U', 'S^SBAR'), '@VP^S->_VP^VP_CC_,_PP^VP_,': ('U', 'VP^VP'), '@ADJP^ADJP->_RBR': ('U', 'JJ'), '@VP^VP->_VB_PRT^VP_PP^VP_PP^VP': ('U', 'S^VP'), '@VP^S->_TO': ('U', 'NP^VP'), '@SBAR^SBARQ->_WHADVP^SBAR': ('U', 'S^SBAR'), '@NP^NP->_NP^NP_,_``': ('U', 'NP^NP'), '@VP^S->_VB_NP^VP_NP^VP': ('U', 'S^VP'), '@VP^FRAG->_VBN_:': ('U', 'NP^VP'), '@ADJP^FRAG->_WRB': ('U', 'JJ'), '@NP^PP->_DT': ('U', 'JJ'), '@WHADJP^WHNP->_WRB': ('U', 'JJ'), '@VP^NP->_VP^VP_CC': ('U', 'VP^VP'), '@PP^VP->_VBN': ('U', 'NP^PP'), '@S^SBAR->_S^S_CC_S^S_CC': ('U', 'S^S'), '@VP^VP->_VBN_ADVP^VP': ('U', 'S^VP'), '@VP^VP->_VB_NP^VP_,': ('U', 'S^VP'), '@NP^PP->_NP^NP_CC_EDITED^NP': ('U', 'NP^NP'), '@VP^VP->_VB_,_SBAR^VP_,': ('U', 'SBAR^VP'), '@NP^FRAG->_NP^NP': ('U', 'NP^NP'), '@ADJP^VP->_ADJP^ADJP_CC': ('U', 'ADJP^ADJP'), 'ADJP^FRAG': ('U', 'JJ'), '@NML^NP->_JJ': ('U', 'JJ'), '@VP^S->_VBZ_NP^VP_ADVP^VP': ('U', 'SBAR^VP'), '@S^VP->_``': ('U', 'S^S'), '@NP^EDITED->_NP^NP': ('U', 'SBAR^NP')}}
