@@ -1,3 +1,3 @@
 nlp
 ===
-Some of the draft homework when I took NLP courses.
+Some of the draft homework when I took NLP course.
